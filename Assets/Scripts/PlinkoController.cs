@@ -68,7 +68,7 @@ public class PlinkoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (drop.WasPressedThisFrame())
+        if (drop.WasPerformedThisFrame())
         {
             move = false;
             DOTween.Kill(plinkoDrop.transform);
@@ -76,7 +76,7 @@ public class PlinkoController : MonoBehaviour
             rb.useGravity = true;
         }
 
-        if (reset.WasPressedThisFrame())
+        if (reset.WasPerformedThisFrame())
         {
             move = false;
             DOTween.Kill(plinkoDrop.transform);
