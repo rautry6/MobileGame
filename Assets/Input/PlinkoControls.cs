@@ -92,6 +92,87 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""SlimeHole"",
+            ""id"": ""64c7f564-d3bb-4fd5-9fcf-bb67f95b4e60"",
+            ""actions"": [
+                {
+                    ""name"": ""Input"",
+                    ""type"": ""Value"",
+                    ""id"": ""4b5c009b-e682-4141-8fc3-8bc506858222"",
+                    ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""17cc5ae1-2b04-49bc-adf1-e5af0406bce3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""3D Vector"",
+                    ""id"": ""9511f887-8862-4218-a389-977aa8725989"",
+                    ""path"": ""3DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Input"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""9acf3c30-1e40-48e7-9fd8-ae5766a20cd0"",
+                    ""path"": ""<Touchscreen>/primaryTouch/delta/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Input"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""c58e13e5-1ab7-49d2-b8df-dc98e65ce0db"",
+                    ""path"": ""<Touchscreen>/primaryTouch/delta/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Input"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""4fded5c2-5422-420a-b81d-455e214252e3"",
+                    ""path"": ""<Touchscreen>/primaryTouch/delta/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Input"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0ebd2bd9-efd9-4813-9e4f-d506850a062f"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -100,6 +181,10 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
         m_Plinko = asset.FindActionMap("Plinko", throwIfNotFound: true);
         m_Plinko_Drop = m_Plinko.FindAction("Drop", throwIfNotFound: true);
         m_Plinko_Reset = m_Plinko.FindAction("Reset", throwIfNotFound: true);
+        // SlimeHole
+        m_SlimeHole = asset.FindActionMap("SlimeHole", throwIfNotFound: true);
+        m_SlimeHole_Input = m_SlimeHole.FindAction("Input", throwIfNotFound: true);
+        m_SlimeHole_Reset = m_SlimeHole.FindAction("Reset", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -211,9 +296,68 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
         }
     }
     public PlinkoActions @Plinko => new PlinkoActions(this);
+
+    // SlimeHole
+    private readonly InputActionMap m_SlimeHole;
+    private List<ISlimeHoleActions> m_SlimeHoleActionsCallbackInterfaces = new List<ISlimeHoleActions>();
+    private readonly InputAction m_SlimeHole_Input;
+    private readonly InputAction m_SlimeHole_Reset;
+    public struct SlimeHoleActions
+    {
+        private @PlinkoControls m_Wrapper;
+        public SlimeHoleActions(@PlinkoControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Input => m_Wrapper.m_SlimeHole_Input;
+        public InputAction @Reset => m_Wrapper.m_SlimeHole_Reset;
+        public InputActionMap Get() { return m_Wrapper.m_SlimeHole; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SlimeHoleActions set) { return set.Get(); }
+        public void AddCallbacks(ISlimeHoleActions instance)
+        {
+            if (instance == null || m_Wrapper.m_SlimeHoleActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_SlimeHoleActionsCallbackInterfaces.Add(instance);
+            @Input.started += instance.OnInput;
+            @Input.performed += instance.OnInput;
+            @Input.canceled += instance.OnInput;
+            @Reset.started += instance.OnReset;
+            @Reset.performed += instance.OnReset;
+            @Reset.canceled += instance.OnReset;
+        }
+
+        private void UnregisterCallbacks(ISlimeHoleActions instance)
+        {
+            @Input.started -= instance.OnInput;
+            @Input.performed -= instance.OnInput;
+            @Input.canceled -= instance.OnInput;
+            @Reset.started -= instance.OnReset;
+            @Reset.performed -= instance.OnReset;
+            @Reset.canceled -= instance.OnReset;
+        }
+
+        public void RemoveCallbacks(ISlimeHoleActions instance)
+        {
+            if (m_Wrapper.m_SlimeHoleActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ISlimeHoleActions instance)
+        {
+            foreach (var item in m_Wrapper.m_SlimeHoleActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_SlimeHoleActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public SlimeHoleActions @SlimeHole => new SlimeHoleActions(this);
     public interface IPlinkoActions
     {
         void OnDrop(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
+    }
+    public interface ISlimeHoleActions
+    {
+        void OnInput(InputAction.CallbackContext context);
         void OnReset(InputAction.CallbackContext context);
     }
 }
