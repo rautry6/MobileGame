@@ -21,6 +21,8 @@ public class SlimeHoleInput : MonoBehaviour
     float verticalPower = 0.2f;
     float horizontalPower = 0.2f;
 
+    float maxY = 20f;
+
     private void Awake()
     {
         //Create new instance of the Input Controller
@@ -62,7 +64,7 @@ public class SlimeHoleInput : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float y = inputDirection.y;
+        float y = inputDirection.y < maxY ? inputDirection.y : maxY;
         float x = inputDirection.x;
 
         if(y > 0)
