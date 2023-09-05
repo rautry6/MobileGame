@@ -24,4 +24,16 @@ public class Bucket : MonoBehaviour
             Debug.Log("Player wins " + bucketPrize);
         }
     }
+
+    public void SetBucketPrize(string prize, Sprite prizeIcon)
+    {
+        bucketPrize = prize;
+
+        prizeImage = prizeIcon;
+
+        if (prizeImage != null)
+        {
+            prizeImageHolder.sprite = prizeImage;
+        }
+    }
 }
