@@ -8,6 +8,9 @@ public class PlinkoSpawning : MonoBehaviour
     [SerializeField] private GameObject pegPrefab;
     [SerializeField] private GameObject bucketPrefab;
 
+
+    [SerializeField] private GameObject[] buckets;
+
     [SerializeField] private Transform startingPeg;
     private Vector3 startingPosition;
     [SerializeField] private int numberOfRows = 5;
@@ -60,17 +63,32 @@ public class PlinkoSpawning : MonoBehaviour
 
             }
 
+            //On the last row
+            if(i  == numberOfRows - 1)
+            {
+                SpawnBuckets(startingPosition.y);
+            }
+
             //Moves the starting position down and by the horizontal offset for the next row
             startingPosition = new Vector3(startingPosition.x - horizontalOffsetBetweenRows, startingPosition.y - distanceBetweenRows, startingPosition.z);
 
             //Flips horizontal offset so rows alternate
             horizontalOffsetBetweenRows = -horizontalOffsetBetweenRows;
+
+
         }
     }
 
-    void SpawnBuckets()
+    /// <summary>
+    /// Move the buckets down to the bottom layer of pegs
+    /// </summary>
+    /// <param name="bottomRowYPos"></param>
+    void SpawnBuckets(float bottomRowYPos)
     {
-
+        foreach(GameObject bucket  in buckets)
+        {
+            bucket.transform.position -= Vector3.down * bottomRowYPos * 1.3f;
+        }
     }
 }
 
