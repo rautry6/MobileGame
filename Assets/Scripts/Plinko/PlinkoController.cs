@@ -127,11 +127,8 @@ public class PlinkoController : MonoBehaviour
                     moveOffset = -moveOffset;
                     moveEndPosition = startingLocation + moveOffset;
                     inMotion = false;
-                })
-                    .OnKill(() =>
-                {
-                    rb.AddForce((moveOffset.x > 0 ? new Vector3(rb.mass * (velocity / time) * 0.5f, 0, 0) : new Vector3(-rb.mass * (velocity / time) * 0.5f, 0, 0)), ForceMode.Impulse);
                 });
+                    
             }
         }
     }
