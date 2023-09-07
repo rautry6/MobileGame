@@ -162,6 +162,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Skeeball",
+            "id": "7c95ce2f-ad09-4b72-9657-df0bf1f8a09f",
+            "actions": [
+                {
+                    "name": "Confirm",
+                    "type": "Button",
+                    "id": "a3949da7-7a18-4d8c-8016-25a89c20e05a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7c126c97-569d-498b-aa41-c3684c6fc728",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Confirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "40065ca7-1e39-4a4f-b8e2-291b59245f02",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Confirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
