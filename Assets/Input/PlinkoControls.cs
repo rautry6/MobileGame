@@ -186,6 +186,15 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""7dc310f8-9bec-47d6-9c9c-fbedaa44e50c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -210,6 +219,28 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
                     ""action"": ""Confirm"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""479f5c39-d098-4467-9d2a-2ccc40448201"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""367021eb-92e7-46fd-a462-ba9bc6c05acd"",
+                    ""path"": ""<Touchscreen>/touch*/Press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -227,6 +258,7 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
         // Skeeball
         m_Skeeball = asset.FindActionMap("Skeeball", throwIfNotFound: true);
         m_Skeeball_Confirm = m_Skeeball.FindAction("Confirm", throwIfNotFound: true);
+        m_Skeeball_Reset = m_Skeeball.FindAction("Reset", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -397,11 +429,13 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Skeeball;
     private List<ISkeeballActions> m_SkeeballActionsCallbackInterfaces = new List<ISkeeballActions>();
     private readonly InputAction m_Skeeball_Confirm;
+    private readonly InputAction m_Skeeball_Reset;
     public struct SkeeballActions
     {
         private @PlinkoControls m_Wrapper;
         public SkeeballActions(@PlinkoControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Confirm => m_Wrapper.m_Skeeball_Confirm;
+        public InputAction @Reset => m_Wrapper.m_Skeeball_Reset;
         public InputActionMap Get() { return m_Wrapper.m_Skeeball; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -414,6 +448,9 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
             @Confirm.started += instance.OnConfirm;
             @Confirm.performed += instance.OnConfirm;
             @Confirm.canceled += instance.OnConfirm;
+            @Reset.started += instance.OnReset;
+            @Reset.performed += instance.OnReset;
+            @Reset.canceled += instance.OnReset;
         }
 
         private void UnregisterCallbacks(ISkeeballActions instance)
@@ -421,6 +458,9 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
             @Confirm.started -= instance.OnConfirm;
             @Confirm.performed -= instance.OnConfirm;
             @Confirm.canceled -= instance.OnConfirm;
+            @Reset.started -= instance.OnReset;
+            @Reset.performed -= instance.OnReset;
+            @Reset.canceled -= instance.OnReset;
         }
 
         public void RemoveCallbacks(ISkeeballActions instance)
@@ -451,5 +491,6 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
     public interface ISkeeballActions
     {
         void OnConfirm(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
     }
 }
