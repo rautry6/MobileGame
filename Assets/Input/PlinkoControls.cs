@@ -173,6 +173,45 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Skeeball"",
+            ""id"": ""7c95ce2f-ad09-4b72-9657-df0bf1f8a09f"",
+            ""actions"": [
+                {
+                    ""name"": ""Confirm"",
+                    ""type"": ""Button"",
+                    ""id"": ""a3949da7-7a18-4d8c-8016-25a89c20e05a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""7c126c97-569d-498b-aa41-c3684c6fc728"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""40065ca7-1e39-4a4f-b8e2-291b59245f02"",
+                    ""path"": ""<Touchscreen>/Press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -185,6 +224,9 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
         m_SlimeHole = asset.FindActionMap("SlimeHole", throwIfNotFound: true);
         m_SlimeHole_Input = m_SlimeHole.FindAction("Input", throwIfNotFound: true);
         m_SlimeHole_Reset = m_SlimeHole.FindAction("Reset", throwIfNotFound: true);
+        // Skeeball
+        m_Skeeball = asset.FindActionMap("Skeeball", throwIfNotFound: true);
+        m_Skeeball_Confirm = m_Skeeball.FindAction("Confirm", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -350,6 +392,52 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
         }
     }
     public SlimeHoleActions @SlimeHole => new SlimeHoleActions(this);
+
+    // Skeeball
+    private readonly InputActionMap m_Skeeball;
+    private List<ISkeeballActions> m_SkeeballActionsCallbackInterfaces = new List<ISkeeballActions>();
+    private readonly InputAction m_Skeeball_Confirm;
+    public struct SkeeballActions
+    {
+        private @PlinkoControls m_Wrapper;
+        public SkeeballActions(@PlinkoControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Confirm => m_Wrapper.m_Skeeball_Confirm;
+        public InputActionMap Get() { return m_Wrapper.m_Skeeball; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SkeeballActions set) { return set.Get(); }
+        public void AddCallbacks(ISkeeballActions instance)
+        {
+            if (instance == null || m_Wrapper.m_SkeeballActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_SkeeballActionsCallbackInterfaces.Add(instance);
+            @Confirm.started += instance.OnConfirm;
+            @Confirm.performed += instance.OnConfirm;
+            @Confirm.canceled += instance.OnConfirm;
+        }
+
+        private void UnregisterCallbacks(ISkeeballActions instance)
+        {
+            @Confirm.started -= instance.OnConfirm;
+            @Confirm.performed -= instance.OnConfirm;
+            @Confirm.canceled -= instance.OnConfirm;
+        }
+
+        public void RemoveCallbacks(ISkeeballActions instance)
+        {
+            if (m_Wrapper.m_SkeeballActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ISkeeballActions instance)
+        {
+            foreach (var item in m_Wrapper.m_SkeeballActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_SkeeballActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public SkeeballActions @Skeeball => new SkeeballActions(this);
     public interface IPlinkoActions
     {
         void OnDrop(InputAction.CallbackContext context);
@@ -359,5 +447,9 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
     {
         void OnInput(InputAction.CallbackContext context);
         void OnReset(InputAction.CallbackContext context);
+    }
+    public interface ISkeeballActions
+    {
+        void OnConfirm(InputAction.CallbackContext context);
     }
 }
