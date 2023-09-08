@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using DG.Tweening;
+using Cinemachine;
 
 public class SkeeballInput : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class SkeeballInput : MonoBehaviour
 
     private bool rotating;
     private bool rotateRight;
+    private float currentRotation;
 
     [Header("Power")]
 
@@ -49,6 +51,11 @@ public class SkeeballInput : MonoBehaviour
     Vector3 startingLocation;
     Quaternion startingRotation;
     private bool canConfirm;
+
+    [Header("Camera")]
+    [SerializeField] CinemachineVirtualCamera vc;
+    Vector3 vcStartingPosition;
+    Vector3 vcOffsets;
     private void Awake()
     {
         inputController = new PlinkoControls();
@@ -67,6 +74,8 @@ public class SkeeballInput : MonoBehaviour
         rb = slime.GetComponent<Rigidbody>();
         startingLocation = slime.transform.position;
         startingRotation = slime.transform.rotation;
+        vcStartingPosition = vc.transform.position;
+        vcOffsets = vc.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset;
     }
 
     private void OnEnable()
@@ -234,6 +243,10 @@ public class SkeeballInput : MonoBehaviour
 
     void LaunchBall()
     {
+        vc.Follow = null;
+
+        vc.transform.position = vcStartingPosition + vcOffsets;
+
         trajectoryIndicator.SetActive(false);
 
         rb.AddForce(power * powerMultiplier, ForceMode.Impulse);
@@ -251,6 +264,9 @@ public class SkeeballInput : MonoBehaviour
         slime.transform.rotation = startingRotation;
 
         rb.constraints = RigidbodyConstraints.None;
+
+        vc.Follow = slime;
+      
 
         moving = false;
         rotating = false;
