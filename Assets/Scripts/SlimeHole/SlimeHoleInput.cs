@@ -97,7 +97,10 @@ public class SlimeHoleInput : MonoBehaviour
     {
         rb.useGravity = false; 
         rb.velocity = Vector3.zero;
+        rb.Sleep();
+        rb.WakeUp();
         slime.transform.position = startingPosition;
         _hasLaunched = false;
+        
     }
 }
