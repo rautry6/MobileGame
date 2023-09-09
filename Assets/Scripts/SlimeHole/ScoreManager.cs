@@ -20,5 +20,6 @@ namespace SlimeHole
             CurrentScore += points;
             scoreText.SetText(CurrentScore.ToString());
         }
+        
     }
 }

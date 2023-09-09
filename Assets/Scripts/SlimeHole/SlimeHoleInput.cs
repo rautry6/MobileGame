@@ -14,6 +14,7 @@ namespace SlimeHole
         [SerializeField] private TMP_Text zText;
         [SerializeField] private TMP_Text forceText;
         [SerializeField] private float textYDirection;
+        [SerializeField] private SlimeThrowUI slimeThrowUI;
 
         Vector3 startingPosition;
         PlinkoControls controls;
@@ -27,7 +28,7 @@ namespace SlimeHole
         float maxY = 20f;
         private bool _hasLaunched;
         private int slimesRemaining = 10;
-
+        private int currentThrow = 0;
         private void Awake()
         {
             //Create new instance of the Input Controller
@@ -62,6 +63,7 @@ namespace SlimeHole
 
         void Update()
         {
+            Debug.Log(currentThrow);
             if (!_hasLaunched)
             {
                 inputDirection = touch.ReadValue<Vector3>();
@@ -89,6 +91,8 @@ namespace SlimeHole
             if(y > 0)
             {
                 inputDirection = Vector3.zero;
+                currentThrow++;
+                slimeThrowUI.Thrown(currentThrow);
                 Debug.Log("y " + y);
                 Debug.Log("x " + x);
                 Vector3 forceVector = new Vector3(x * horizontalPower, y * verticalPower, forwardLaunchPower);
@@ -97,12 +101,14 @@ namespace SlimeHole
                 StartCoroutine(SlimeThrowCooldown());
                 _hasLaunched = true;
                 rb.useGravity = true;
+                
             }
         }
 
         private IEnumerator SlimeThrowCooldown()
         {
             slimesRemaining--;
+    
             DisableInputActions();
             yield return new WaitForSeconds(3f);
             if (slimesRemaining > 0)
@@ -120,7 +126,7 @@ namespace SlimeHole
             rb.WakeUp();
             slime.transform.position = startingPosition;
             _hasLaunched = false;
-        
+            SlimeBoardHistory.WasOnBoardPreviously = false;
         }
     }
 }
