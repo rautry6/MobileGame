@@ -14,8 +14,7 @@ namespace SlimeHole
         [SerializeField] private TMP_Text zText;
         [SerializeField] private TMP_Text forceText;
         [SerializeField] private float textYDirection;
-        [SerializeField] private List<GameObject> throwCountIcons;
-    
+
         Vector3 startingPosition;
         PlinkoControls controls;
         InputAction touch;
@@ -25,7 +24,6 @@ namespace SlimeHole
         float forwardLaunchPower = 10f;
         float verticalPower = 0.5f;
         float horizontalPower = 0.2f;
-        private int currentThrow;
         float maxY = 20f;
         private bool _hasLaunched;
         private int slimesRemaining = 10;
@@ -91,8 +89,6 @@ namespace SlimeHole
             if(y > 0)
             {
                 inputDirection = Vector3.zero;
-                throwCountIcons[currentThrow].SetActive(false);
-                currentThrow++;
                 Debug.Log("y " + y);
                 Debug.Log("x " + x);
                 Vector3 forceVector = new Vector3(x * horizontalPower, y * verticalPower, forwardLaunchPower);
