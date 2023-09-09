@@ -6155,15 +6155,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7634826782293834722, guid: 097f86f2828018c468035ff39c0e9f7b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7634826782293834722, guid: 097f86f2828018c468035ff39c0e9f7b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7634826782293834722, guid: 097f86f2828018c468035ff39c0e9f7b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.2
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7634826782293834722, guid: 097f86f2828018c468035ff39c0e9f7b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7843,7 +7843,7 @@ Transform:
   m_GameObject: {fileID: 409513865}
   m_LocalRotation: {x: -0.25751743, y: -0.09674908, z: -0.025923833, w: 0.9610684}
   m_LocalPosition: {x: -0.365, y: 1.103, z: -4.336}
-  m_LocalScale: {x: 0.8, y: 0.3, z: 0.1}
+  m_LocalScale: {x: 0.7, y: 0.3, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 698274722}
@@ -8965,7 +8965,7 @@ MonoBehaviour:
   maxRotationOffset: 18
   rotationTime: 3
   powerBar: {fileID: 1125866978}
-  powerChangeAmount: 0.5
+  powerChangeAmount: 0.6
   power: {x: 0, y: 9, z: 3}
   vc: {fileID: 408466471}
 --- !u!4 &900483853
@@ -9287,8 +9287,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097941128}
   m_LocalRotation: {x: -0.25751758, y: 0.09674526, z: 0.025922809, w: 0.96106875}
-  m_LocalPosition: {x: 0.334, y: 1.103, z: -4.336}
-  m_LocalScale: {x: 0.8, y: 0.3, z: 0.1}
+  m_LocalPosition: {x: 0.349, y: 1.103, z: -4.336}
+  m_LocalScale: {x: 0.7, y: 0.3, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 698274722}
@@ -9442,7 +9442,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 208931613}
   m_Direction: 0
   m_MinValue: 0.5
-  m_MaxValue: 1
+  m_MaxValue: 0.85
   m_WholeNumbers: 0
   m_Value: 0.5
   m_OnValueChanged:

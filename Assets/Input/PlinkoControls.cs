@@ -235,7 +235,7 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""367021eb-92e7-46fd-a462-ba9bc6c05acd"",
                     ""path"": ""<Touchscreen>/touch*/Press"",
-                    ""interactions"": """",
+                    ""interactions"": ""MultiTap"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Reset"",

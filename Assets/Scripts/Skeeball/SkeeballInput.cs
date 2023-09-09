@@ -199,7 +199,7 @@ public class SkeeballInput : MonoBehaviour
                 confirmingRotation = false;
                 confirmingPower = true;
 
-                power.x =(slime.transform.localEulerAngles.y > maxRotationOffset ? slime.transform.localEulerAngles.y - 360 : slime.transform.localEulerAngles.y) * 0.10f;
+                power.x =(slime.transform.localEulerAngles.y > maxRotationOffset ? slime.transform.localEulerAngles.y - 360 : slime.transform.localEulerAngles.y) * 0.05f;
 
                 powerBar.gameObject.SetActive(true);
             }
