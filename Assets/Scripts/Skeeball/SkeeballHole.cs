@@ -6,12 +6,14 @@ public class SkeeballHole : MonoBehaviour
 {
     [SerializeField] Scores score;
     [SerializeField] SkeeballScoreManager scoreManager;
+    AudioSource audioSource;
 
     ScoresFunctions scoresFunctions;
     // Start is called before the first frame update
     void Start()
     {
         scoresFunctions = new ScoresFunctions();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,6 +27,11 @@ public class SkeeballHole : MonoBehaviour
         if (other.CompareTag("Slime"))
         {
             scoreManager.AddScore(scoresFunctions.ConvertToInt(score));
+
+            if(audioSource != null)
+            {
+                audioSource.Play();
+            }
         }
     }
 }
