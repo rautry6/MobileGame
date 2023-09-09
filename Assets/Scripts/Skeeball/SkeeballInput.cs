@@ -9,6 +9,9 @@ using Cinemachine;
 public class SkeeballInput : MonoBehaviour
 {
     [SerializeField] private Transform slime;
+    [SerializeField] private SlimeThrowUI slimeThrowUI;
+    private int currentThrow = 0;
+    private int maxThrows;
 
     [Header("Position")]
     [SerializeField] private Transform leftPoint;
@@ -76,6 +79,7 @@ public class SkeeballInput : MonoBehaviour
         startingRotation = slime.transform.rotation;
         vcStartingPosition = vc.transform.position;
         vcOffsets = vc.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset;
+        maxThrows = slimeThrowUI.numberOfThrows;
     }
 
     private void OnEnable()
@@ -243,6 +247,9 @@ public class SkeeballInput : MonoBehaviour
 
     void LaunchBall()
     {
+        currentThrow++;
+        slimeThrowUI.Thrown(currentThrow);
+
         vc.Follow = null;
 
         vc.transform.position = vcStartingPosition + vcOffsets;
@@ -255,6 +262,13 @@ public class SkeeballInput : MonoBehaviour
 
     void ResetSlime()
     {
+
+        if(currentThrow >= maxThrows)
+        {
+            //Game Over stuff
+            return;
+        }
+
         DOTween.KillAll();
 
         rb.useGravity = false;

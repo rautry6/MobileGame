@@ -10,11 +10,14 @@ public class SlimeThrowUI : MonoBehaviour
     [SerializeField] Material currentSlimeMaterial;
     [SerializeField] Material transparentMaterial;
 
-    [SerializeField] private float numberOfThrows;
+    public int numberOfThrows;
+    private List<GameObject> throwUis;
     // Start is called before the first frame update
     void Start()
     {
         //Test
+        throwUis = new List<GameObject>();
+
         SetSlimeModel(currentSlimeMesh, currentSlimeMaterial);
     }
 
@@ -44,6 +47,13 @@ public class SlimeThrowUI : MonoBehaviour
 
             gChild.GetComponent<MeshFilter>().mesh = currentSlimeMesh;
             gChild.GetComponent<MeshRenderer>().material = currentSlimeMaterial;
+
+            throwUis.Add(g);
         }
+    }
+
+    public void Thrown(int currentThrow)
+    {
+        throwUis[numberOfThrows - currentThrow].SetActive(false);
     }
 }
