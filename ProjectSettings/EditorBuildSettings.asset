@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Skeeball.unity
+    guid: cc7bbcacb3c51fa4cb7a65ea6683ac82
   m_configObjects: {}
