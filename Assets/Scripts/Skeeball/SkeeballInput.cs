@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using DG.Tweening;
+using Cinemachine;
 
 public class SkeeballInput : MonoBehaviour
 {
@@ -28,23 +29,33 @@ public class SkeeballInput : MonoBehaviour
 
     private bool rotating;
     private bool rotateRight;
+    private float currentRotation;
 
     [Header("Power")]
 
     //This displays how much power the player is going to throw the slime with
     [SerializeField] private Slider powerBar;
     [SerializeField] private float powerChangeAmount = 2f;
+    [SerializeField] private Vector3 power;
 
     private bool confirmingPower;
-    private float powerMultiplier = 0f;
+    private float powerMultiplier;
     private float maxPowerMultiplier;
     private bool powerIncreasing;
 
     PlinkoControls inputController;
     InputAction confirm;
+    InputAction reset;
 
-
+    Rigidbody rb;
+    Vector3 startingLocation;
+    Quaternion startingRotation;
     private bool canConfirm;
+
+    [Header("Camera")]
+    [SerializeField] CinemachineVirtualCamera vc;
+    Vector3 vcStartingPosition;
+    Vector3 vcOffsets;
     private void Awake()
     {
         inputController = new PlinkoControls();
@@ -55,25 +66,41 @@ public class SkeeballInput : MonoBehaviour
         confirmingPosition = true;
 
         maxPowerMultiplier = powerBar.maxValue;
-        powerBar.value = 0;
+        powerBar.value = powerBar.minValue;
+        powerMultiplier = powerBar.minValue;
 
         powerBar.gameObject.SetActive(false);
+
+        rb = slime.GetComponent<Rigidbody>();
+        startingLocation = slime.transform.position;
+        startingRotation = slime.transform.rotation;
+        vcStartingPosition = vc.transform.position;
+        vcOffsets = vc.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset;
     }
 
     private void OnEnable()
     {
         confirm = inputController.Skeeball.Confirm;
         confirm.Enable();
+
+        reset = inputController.Skeeball.Reset;
+        reset.Enable();
     }
 
     private void OnDisable()
     {
         confirm.Disable();
+        reset.Disable();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(reset.WasPerformedThisFrame())
+        {
+            ResetSlime();
+        }
+
         if(!canConfirm)
         {
             return;
@@ -172,6 +199,8 @@ public class SkeeballInput : MonoBehaviour
                 confirmingRotation = false;
                 confirmingPower = true;
 
+                power.x =(slime.transform.localEulerAngles.y > maxRotationOffset ? slime.transform.localEulerAngles.y - 360 : slime.transform.localEulerAngles.y) * 0.05f;
+
                 powerBar.gameObject.SetActive(true);
             }
 
@@ -193,7 +222,7 @@ public class SkeeballInput : MonoBehaviour
             {
                 powerMultiplier -= powerChangeAmount * Time.deltaTime;
 
-                if(powerMultiplier <= 0)
+                if(powerMultiplier <= powerBar.minValue)
                 {
                     powerIncreasing = true;
                 }
@@ -214,6 +243,41 @@ public class SkeeballInput : MonoBehaviour
 
     void LaunchBall()
     {
+        vc.Follow = null;
+
+        vc.transform.position = vcStartingPosition + vcOffsets;
+
+        trajectoryIndicator.SetActive(false);
+
+        rb.AddForce(power * powerMultiplier, ForceMode.Impulse);
+        rb.useGravity = true;
+    }
+
+    void ResetSlime()
+    {
+        DOTween.KillAll();
+
+        rb.useGravity = false;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+
+        slime.transform.position = startingLocation;
+        slime.transform.rotation = startingRotation;
+
+        rb.constraints = RigidbodyConstraints.None;
+
+        vc.Follow = slime;
+      
+
+        moving = false;
+        rotating = false;
+
+        canConfirm = true;
+        confirmingPosition = true;
+        trajectoryIndicator.SetActive(true);
+
+        powerBar.value = powerBar.minValue;
+        powerMultiplier = powerBar.minValue;
+        powerBar.gameObject.SetActive(false);
 
     }
 }
