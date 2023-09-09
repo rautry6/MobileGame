@@ -56,4 +56,16 @@ public class SlimeThrowUI : MonoBehaviour
     {
         throwUis[numberOfThrows - currentThrow].SetActive(false);
     }
+
+    public void ResetLastThrow()
+    {
+        for(int i = 0; i < throwUis.Count; i++)
+        {
+            if (!throwUis[i].activeInHierarchy)
+            {
+                throwUis[i].SetActive(true);
+                return;
+            }
+        }
+    }
 }

@@ -260,12 +260,13 @@ public class SkeeballInput : MonoBehaviour
         rb.useGravity = true;
     }
 
-    void ResetSlime()
+    public void ResetSlime()
     {
 
         if(currentThrow >= maxThrows)
         {
             //Game Over stuff
+            powerBar.gameObject.SetActive(false);
             return;
         }
 
@@ -293,5 +294,11 @@ public class SkeeballInput : MonoBehaviour
         powerMultiplier = powerBar.minValue;
         powerBar.gameObject.SetActive(false);
 
+    }
+
+    public void ResetLastThrow()
+    {
+        currentThrow--;
+        ResetSlime();
     }
 }
