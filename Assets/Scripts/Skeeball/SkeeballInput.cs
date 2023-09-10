@@ -10,6 +10,8 @@ public class SkeeballInput : MonoBehaviour
 {
     [SerializeField] private Transform slime;
     [SerializeField] private SlimeThrowUI slimeThrowUI;
+    [SerializeField] private SkeeballMinigameFinish gameOver;
+
     private int currentThrow = 0;
     private int maxThrows;
 
@@ -267,6 +269,8 @@ public class SkeeballInput : MonoBehaviour
         {
             //Game Over stuff
             powerBar.gameObject.SetActive(false);
+            gameOver.DisplayGameOverUi();
+
             return;
         }
 
