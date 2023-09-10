@@ -23,10 +23,15 @@ public class PlinkoController : MonoBehaviour
     PlinkoControls plinkoController;
     InputAction drop;
     InputAction reset;
+    InputAction m;
 
     private float v;
     private float t;
     private float d;
+
+    private float moveSpeed = 5f;
+    private float maxX;
+    private float minX;
 
     private void Awake()
     {
@@ -39,6 +44,9 @@ public class PlinkoController : MonoBehaviour
 
         moveOffset = (transform.right * moveXOffset);
         moveEndPosition = plinkoDrop.transform.position + moveOffset;
+
+        maxX = plinkoDrop.transform.position.x + moveOffset.x;
+        minX = plinkoDrop.transform.position.x - moveOffset.x;
     }
 
     private void OnEnable()
@@ -46,10 +54,12 @@ public class PlinkoController : MonoBehaviour
         //Get the input actions from the cotroller
         drop = plinkoController.Plinko.Drop; 
         reset = plinkoController.Plinko.Reset;
+        m = plinkoController.Plinko.Move;
 
         //Enable them
         drop.Enable();
         reset.Enable();
+        m.Enable();
     }
 
     private void OnDisable()
@@ -57,6 +67,7 @@ public class PlinkoController : MonoBehaviour
         //Disable actions (Avoids memory leaks)
         drop.Disable();
         reset.Disable();
+        m.Disable();
     }
 
     // Start is called before the first frame update
@@ -101,35 +112,20 @@ public class PlinkoController : MonoBehaviour
 
         if(move)
         {
-            //Keeps the speed of the slime the same no matter starting position
+            Vector3 direction = m.ReadValue<Vector3>();
 
-            float fullDistance = Vector3.Distance(startingLocation - moveOffset, startingLocation + moveOffset);
+            float targetX = plinkoDrop.transform.position.x + (direction.x * moveSpeed * Time.deltaTime);
 
-            //Calculate velocity of object given the full distance and move time
-            var velocity = fullDistance / moveTime;
-
-
-            //Calculates how much further the object needs to move
-            var remainingDistance = Vector3.Distance(plinkoDrop.transform.position, moveEndPosition);
-
-            //Calculate time to move the required distance
-            float time = remainingDistance / velocity;
-
-
-            if(!inMotion)
+            if (targetX < minX)
             {
-                inMotion = true;
-
-                plinkoDrop.transform.DOMove(moveEndPosition, time)
-                    .SetEase(Ease.Linear)
-                    .OnComplete(() =>
-                {
-                    moveOffset = -moveOffset;
-                    moveEndPosition = startingLocation + moveOffset;
-                    inMotion = false;
-                });
-                    
+                targetX = minX;
             }
+            else if (targetX > maxX)
+            {
+                targetX = maxX;
+            }
+
+            plinkoDrop.transform.position = new Vector3 (targetX, plinkoDrop.transform.position.y, plinkoDrop.transform.position.z);
         }
     }
 }

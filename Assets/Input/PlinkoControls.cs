@@ -44,6 +44,15 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""c84813b8-5c91-4981-be46-d690ea198c39"",
+                    ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -51,17 +60,6 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""5b5d8f00-8bac-4e32-b97c-4500f0c3ceb6"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Drop"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""08b904ff-bc1f-4571-bafc-f3fb26a45581"",
-                    ""path"": ""<Touchscreen>/Press"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -90,6 +88,83 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
                     ""action"": ""Reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""3D Vector"",
+                    ""id"": ""3179c086-0e5d-4742-9b31-d093e6b4bb07"",
+                    ""path"": ""3DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""643c7214-dc3e-4843-bfae-bfbf6a3c8256"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""af69c7ec-8a21-41a0-8f6d-2eb2280e058b"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""0ab1b629-56de-48eb-bae2-d6fa5ba1fcee"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""4eee24ec-e5b5-4283-a648-6895ff82df12"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""forward"",
+                    ""id"": ""87d89e1c-55aa-41e6-bdb8-831db92f52f5"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""backward"",
+                    ""id"": ""490abc0b-cfdb-479a-a01b-02b52212ed52"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -262,6 +337,7 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
         m_Plinko = asset.FindActionMap("Plinko", throwIfNotFound: true);
         m_Plinko_Drop = m_Plinko.FindAction("Drop", throwIfNotFound: true);
         m_Plinko_Reset = m_Plinko.FindAction("Reset", throwIfNotFound: true);
+        m_Plinko_Move = m_Plinko.FindAction("Move", throwIfNotFound: true);
         // SlimeHole
         m_SlimeHole = asset.FindActionMap("SlimeHole", throwIfNotFound: true);
         m_SlimeHole_Input = m_SlimeHole.FindAction("Input", throwIfNotFound: true);
@@ -333,12 +409,14 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
     private List<IPlinkoActions> m_PlinkoActionsCallbackInterfaces = new List<IPlinkoActions>();
     private readonly InputAction m_Plinko_Drop;
     private readonly InputAction m_Plinko_Reset;
+    private readonly InputAction m_Plinko_Move;
     public struct PlinkoActions
     {
         private @PlinkoControls m_Wrapper;
         public PlinkoActions(@PlinkoControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Drop => m_Wrapper.m_Plinko_Drop;
         public InputAction @Reset => m_Wrapper.m_Plinko_Reset;
+        public InputAction @Move => m_Wrapper.m_Plinko_Move;
         public InputActionMap Get() { return m_Wrapper.m_Plinko; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -354,6 +432,9 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
             @Reset.started += instance.OnReset;
             @Reset.performed += instance.OnReset;
             @Reset.canceled += instance.OnReset;
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
         }
 
         private void UnregisterCallbacks(IPlinkoActions instance)
@@ -364,6 +445,9 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
             @Reset.started -= instance.OnReset;
             @Reset.performed -= instance.OnReset;
             @Reset.canceled -= instance.OnReset;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
         }
 
         public void RemoveCallbacks(IPlinkoActions instance)
@@ -493,6 +577,7 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
     {
         void OnDrop(InputAction.CallbackContext context);
         void OnReset(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
     }
     public interface ISlimeHoleActions
     {
