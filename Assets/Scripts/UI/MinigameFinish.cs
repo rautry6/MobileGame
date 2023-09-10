@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class SkeeballMinigameFinish : MonoBehaviour
+public class MinigameFinish : MonoBehaviour
 {
     [SerializeField] GameObject gameOverUi;
     [SerializeField] TMP_Text gameOverUiScore;
@@ -29,7 +29,13 @@ public class SkeeballMinigameFinish : MonoBehaviour
         }
 
         gameOverUi.SetActive(true);
-        gameOverUiScore.text = scoreManager.score.ToString();
+
+        if (gameOverUiScore != null)
+        {
+            gameOverUiScore.text = scoreManager.score.ToString();
+        }
+
+        //Set prize stuff
     }
 
     public void BackToHomeWithPrize()

@@ -10,7 +10,7 @@ public class SkeeballInput : MonoBehaviour
 {
     [SerializeField] private Transform slime;
     [SerializeField] private SlimeThrowUI slimeThrowUI;
-    [SerializeField] private SkeeballMinigameFinish gameOver;
+    [SerializeField] private MinigameFinish gameOver;
 
     private int currentThrow = 0;
     private int maxThrows;
@@ -90,7 +90,7 @@ public class SkeeballInput : MonoBehaviour
         confirm.Enable();
 
         reset = inputController.Skeeball.Reset;
-        reset.Enable();
+        //reset.Enable();
     }
 
     private void OnDisable()

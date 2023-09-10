@@ -8,6 +8,7 @@ public class Bucket : MonoBehaviour
     [SerializeField] private string bucketPrize;
     [SerializeField] private Sprite prizeImage;
     [SerializeField] private Image prizeImageHolder;
+    [SerializeField] private MinigameFinish minigameFinish;
 
     private void Start()
     {
@@ -22,6 +23,7 @@ public class Bucket : MonoBehaviour
         if (other.CompareTag("Slime"))
         {
             Debug.Log("Player wins " + bucketPrize);
+            minigameFinish.DisplayGameOverUi();
         }
     }
 

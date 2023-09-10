@@ -58,7 +58,7 @@ public class PlinkoController : MonoBehaviour
 
         //Enable them
         drop.Enable();
-        reset.Enable();
+        //reset.Enable();
         m.Enable();
     }
 
