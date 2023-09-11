@@ -963,7 +963,7 @@ GameObject:
   - component: {fileID: 665752390}
   - component: {fileID: 665752391}
   m_Layer: 5
-  m_Name: MusicVolumeSlider
+  m_Name: MasterVolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1043,7 +1043,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1006648487}
+      - m_Target: {fileID: 1956115479}
         m_TargetAssemblyTypeName: AudioSliderControls, Assembly-CSharp
         m_MethodName: ChangeMasterVol
         m_Mode: 0
@@ -1489,7 +1489,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1006648487}
+      - m_Target: {fileID: 1956115479}
         m_TargetAssemblyTypeName: AudioSliderControls, Assembly-CSharp
         m_MethodName: ChangeMusicVol
         m_Mode: 0
@@ -2147,7 +2147,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1006648485}
   - component: {fileID: 1006648486}
-  - component: {fileID: 1006648487}
   m_Layer: 5
   m_Name: SlidersHolder
   m_TagString: Untagged
@@ -2204,19 +2203,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1006648487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006648484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35e085ab8bb44c44aab75fd29990e69e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mix: {fileID: 24100000, guid: 656f8b9967f2988429b738fba5c47205, type: 2}
 --- !u!1 &1023769847
 GameObject:
   m_ObjectHideFlags: 0
@@ -3627,6 +3613,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1956115478}
+  - component: {fileID: 1956115479}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -3651,6 +3638,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1956115479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956115477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e085ab8bb44c44aab75fd29990e69e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mix: {fileID: 24100000, guid: 656f8b9967f2988429b738fba5c47205, type: 2}
+  master: {fileID: 665752391}
+  sfx: {fileID: 2107608755}
+  music: {fileID: 704231408}
 --- !u!1 &2007945057
 GameObject:
   m_ObjectHideFlags: 0
@@ -3847,7 +3850,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1006648487}
+      - m_Target: {fileID: 1956115479}
         m_TargetAssemblyTypeName: AudioSliderControls, Assembly-CSharp
         m_MethodName: ChangeSFXVol
         m_Mode: 0
