@@ -28,18 +28,20 @@ public class AudioSliderControls : MonoBehaviour
     public void ChangeMusicVol (float newValue)
     {
         mix.SetFloat("MusicVolume", Mathf.Log10(newValue) * 20);
-        PlayerPrefs.SetFloat("MusicVolume", music.value);
+        PlayerPrefs.SetFloat("MusicVolume", newValue);
     }
 
     public void ChangeSFXVol(float newValue)
     {
+        Debug.Log(newValue);
         mix.SetFloat("SFXVolume", Mathf.Log10(newValue) * 20);
-        PlayerPrefs.SetFloat("SFXVolume", sfx.value);
+        PlayerPrefs.SetFloat("SFXVolume", newValue);
+        Debug.Log(PlayerPrefs.GetFloat("SFXVolume", 1));
     }
 
     public void ChangeMasterVol(float newValue)
     {
         mix.SetFloat("MasterVolume", Mathf.Log10(newValue) * 20);
-        PlayerPrefs.SetFloat("MasterVolume", master.value);
+        PlayerPrefs.SetFloat("MasterVolume", newValue);
     }
 }
