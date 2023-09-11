@@ -1,50 +1,52 @@
-using System.Collections;
-using System.Collections.Generic;
+using JelloFelloInterfaces;
+using SlimeCare;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MinigameFinish : MonoBehaviour
+namespace UI
 {
-    [SerializeField] GameObject gameOverUi;
-    [SerializeField] TMP_Text gameOverUiScore;
-
-    // Start is called before the first frame update
-    void Start()
+    public class MinigameFinish : MonoBehaviour, IOrientPortrait
     {
-        
-    }
+        [SerializeField] GameObject gameOverUi;
+        [SerializeField] TMP_Text gameOverUiScore;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void DisplayGameOverUi(int scoreValue)
-    {
-        if (gameOverUi == null)
+        // Start is called before the first frame update
+        void Start()
         {
-            return;
+            LockScreenToPortrait();
         }
 
-        gameOverUi.SetActive(true);
-
-        if (gameOverUiScore != null)
+        public void LockScreenToPortrait()
         {
-            gameOverUiScore.text = scoreValue.ToString();
+            Screen.orientation = ScreenOrientation.Portrait;
+        }
+        public void DisplayGameOverUi(int scoreValue)
+        {
+            if (gameOverUi == null)
+            {
+                return;
+            }
+
+            gameOverUi.SetActive(true);
+
+            if (gameOverUiScore != null)
+            {
+                gameOverUiScore.text = scoreValue.ToString();
+            }
+
+            //Set prize stuff
         }
 
-        //Set prize stuff
-    }
+        public void BackToHomeWithPrize()
+        {
+            SlimeCareStats.Instance.UpdateHealthAndHappiness(30f, 150f);
+            SceneManager.LoadScene("SlimeCare", LoadSceneMode.Single);
+        }
 
-    public void BackToHomeWithPrize()
-    {
-        SceneManager.LoadScene("SlimeCare", LoadSceneMode.Single);
-    }
-
-    public void BackToHomeNoPrize()
-    {
-        SceneManager.LoadScene("SlimeCare", LoadSceneMode.Single);
+        public void BackToHomeNoPrize()
+        {
+            SceneManager.LoadScene("SlimeCare", LoadSceneMode.Single);
+        }
     }
 }

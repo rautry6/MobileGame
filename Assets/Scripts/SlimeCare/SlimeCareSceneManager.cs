@@ -1,22 +1,33 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using JelloFelloInterfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SlimeCareSceneManager : MonoBehaviour
+namespace SlimeCare
 {
-    public void LoadPlinkoScene()
+    public class SlimeCareSceneManager : MonoBehaviour, IOrientLandscape
     {
-        SceneManager.LoadScene("Plinko", LoadSceneMode.Single);
-    }
-    public void LoadSkeeballScene()
-    {
-        SceneManager.LoadScene("Skeeball", LoadSceneMode.Single);
-    }
-    public void LoadSlimeHoleScene()
-    {
-        SceneManager.LoadScene("SlimeHole", LoadSceneMode.Single);
-    }
+        private void Start()
+        {
+            LockScreenToLandscape();
+        }
+
+        public void LockScreenToLandscape()
+        {
+            Screen.orientation = ScreenOrientation.LandscapeLeft;
+        }
+
+        public void LoadPlinkoScene()
+        {
+            SceneManager.LoadScene("Plinko", LoadSceneMode.Single);
+        }
+        public void LoadSkeeballScene()
+        {
+            SceneManager.LoadScene("Skeeball", LoadSceneMode.Single);
+        }
+        public void LoadSlimeHoleScene()
+        {
+            SceneManager.LoadScene("SlimeHole", LoadSceneMode.Single);
+        }
     
+    }
 }

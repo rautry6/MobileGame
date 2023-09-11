@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Slime
   - SkeeballHole
+  - HealthSlider
+  - HappinessSlider
   layers:
   - Default
   - TransparentFX
