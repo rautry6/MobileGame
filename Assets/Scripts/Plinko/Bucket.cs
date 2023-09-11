@@ -23,7 +23,7 @@ public class Bucket : MonoBehaviour
         if (other.CompareTag("Slime"))
         {
             Debug.Log("Player wins " + bucketPrize);
-            minigameFinish.DisplayGameOverUi();
+            minigameFinish.DisplayGameOverUi(0);
         }
     }
 

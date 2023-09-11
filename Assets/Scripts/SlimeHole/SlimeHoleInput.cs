@@ -15,7 +15,7 @@ namespace SlimeHole
         [SerializeField] private TMP_Text forceText;
         [SerializeField] private float textYDirection;
         [SerializeField] private SlimeThrowUI slimeThrowUI;
-        [SerializeField] private SkeeballMinigameFinish miniGameFinish;
+        [SerializeField] private MinigameFinish miniGameFinish;
         [SerializeField] private ScoreManager slimeHoleScoreManager;
 
         Vector3 startingPosition;

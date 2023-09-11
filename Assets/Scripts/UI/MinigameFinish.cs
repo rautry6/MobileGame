@@ -7,7 +7,6 @@ public class MinigameFinish : MonoBehaviour
 {
     [SerializeField] GameObject gameOverUi;
     [SerializeField] TMP_Text gameOverUiScore;
-    [SerializeField] private SkeeballScoreManager scoreManager;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +20,7 @@ public class MinigameFinish : MonoBehaviour
         
     }
 
-    public void DisplayGameOverUi()
+    public void DisplayGameOverUi(int scoreValue)
     {
         if (gameOverUi == null)
         {
@@ -32,7 +31,7 @@ public class MinigameFinish : MonoBehaviour
 
         if (gameOverUiScore != null)
         {
-            gameOverUiScore.text = scoreManager.score.ToString();
+            gameOverUiScore.text = scoreValue.ToString();
         }
 
         //Set prize stuff

@@ -6,15 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="bbc63034-5173-4201-8ecb-892a9c6dcd0b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MobileGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MobileGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SlimeHole.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SlimeHole.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Skeeball.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Skeeball.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Plinko/Bucket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Plinko/Bucket.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Skeeball/SkeeballInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Skeeball/SkeeballInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Skeeball/SkeeballScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Skeeball/SkeeballScoreManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/BoardTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/BoardTrigger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/HoleTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/HoleTrigger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/ResetScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/ResetScene.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/ScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/ScoreManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/SlimeHoleInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/SlimeHoleInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SkeeballMinigameFinish.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SkeeballMinigameFinish.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MinigameFinish.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MinigameFinish.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
