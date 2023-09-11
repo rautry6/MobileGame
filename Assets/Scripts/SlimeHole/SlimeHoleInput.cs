@@ -100,7 +100,7 @@ namespace SlimeHole
         private IEnumerator WaitThenDisplayGameOverUI()
         {
             yield return new WaitForSeconds(3.5f);
-            miniGameFinish.DisplayGameOverUi(slimeHoleScoreManager.currentScore);
+            miniGameFinish.DisplayGameOverUi(slimeHoleScoreManager.currentScore, slimeHoleScoreManager.currentPrize);
         }
 
         private void FixedUpdate()

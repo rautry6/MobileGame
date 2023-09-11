@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Bucket : MonoBehaviour
 {
-    [SerializeField] private string bucketPrize;
+    [SerializeField] private Prize bucketPrize;
     [SerializeField] private Sprite prizeImage;
     [SerializeField] private Image prizeImageHolder;
     [SerializeField] private MinigameFinish minigameFinish;
@@ -23,12 +23,11 @@ public class Bucket : MonoBehaviour
     {
         if (other.CompareTag("Slime"))
         {
-            Debug.Log("Player wins " + bucketPrize);
-            minigameFinish.DisplayGameOverUi(0);
+            minigameFinish.DisplayGameOverUi(0, bucketPrize);
         }
     }
 
-    public void SetBucketPrize(string prize, Sprite prizeIcon)
+    public void SetBucketPrize(Prize prize, Sprite prizeIcon)
     {
         bucketPrize = prize;
 
