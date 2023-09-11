@@ -8,6 +8,7 @@ public class SkeeballScoreManager : MonoBehaviour
     [SerializeField] SkeeballInput input;
     [SerializeField] TMP_Text scoreText;
     [SerializeField] ScoreSlider scoreSlider;
+    
     public int score { get; private set; }
 
     // Start is called before the first frame update

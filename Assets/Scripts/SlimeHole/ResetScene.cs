@@ -8,7 +8,6 @@ namespace SlimeHole
         public void OnResetScene()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            ScoreManager.CurrentScore = 0;
         }
     }
 }
