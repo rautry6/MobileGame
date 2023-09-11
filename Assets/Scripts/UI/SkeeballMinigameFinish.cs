@@ -2,34 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SkeeballMinigameFinish : MonoBehaviour
 {
     [SerializeField] GameObject gameOverUi;
     [SerializeField] TMP_Text gameOverUiScore;
-    [SerializeField] private SkeeballScoreManager scoreManager;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void DisplayGameOverUi()
+    public void DisplayGameOverUi(int scoreValue)
     {
         if (gameOverUi == null)
         {
+            Debug.LogError($"Missing gameOverUI reference in Scene: {SceneManager.GetActiveScene().name}");
             return;
         }
 
         gameOverUi.SetActive(true);
-        gameOverUiScore.text = scoreManager.score.ToString();
+        gameOverUiScore.SetText(scoreValue.ToString());
     }
 
     public void BackToHomeWithPrize()

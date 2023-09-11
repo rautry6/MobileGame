@@ -15,6 +15,8 @@ namespace SlimeHole
         [SerializeField] private TMP_Text forceText;
         [SerializeField] private float textYDirection;
         [SerializeField] private SlimeThrowUI slimeThrowUI;
+        [SerializeField] private SkeeballMinigameFinish miniGameFinish;
+        [SerializeField] private ScoreManager slimeHoleScoreManager;
 
         Vector3 startingPosition;
         PlinkoControls controls;
@@ -27,8 +29,10 @@ namespace SlimeHole
         float horizontalPower = 0.2f;
         float maxY = 20f;
         private bool _hasLaunched;
-        private int slimesRemaining = 10;
+        private int slimesRemaining = 8;
         private int currentThrow = 0;
+        private bool _setScoreOnce = true;
+
         private void Awake()
         {
             //Create new instance of the Input Controller
@@ -63,6 +67,15 @@ namespace SlimeHole
 
         void Update()
         {
+            
+            if (slimesRemaining <= 0 && _setScoreOnce)
+            {
+                touch.Disable();
+                _setScoreOnce = false;
+                StartCoroutine(WaitThenDisplayGameOverUI());
+
+            }
+            
             Debug.Log(currentThrow);
             if (!_hasLaunched)
             {
@@ -71,16 +84,22 @@ namespace SlimeHole
                 yText.SetText($"Y: {inputDirection.y}");
                 zText.SetText($"Z: {inputDirection.z}");
             }
-
-            // if (Input.GetMouseButtonDown(0))
-            // {
-            //     inputDirection = new Vector3(0.2f, textYDirection, 0);
-            // }
-
+#if UNITY_EDITOR
+            if (Input.GetMouseButtonDown(0))
+            {
+                inputDirection = new Vector3(0.2f, textYDirection, 0);
+            }
+#endif
             // if (reset.WasPerformedThisFrame())
             // {
             //     ResetSlime();
             // }
+        }
+
+        private IEnumerator WaitThenDisplayGameOverUI()
+        {
+            yield return new WaitForSeconds(3.5f);
+            miniGameFinish.DisplayGameOverUi(slimeHoleScoreManager.currentScore);
         }
 
         private void FixedUpdate()
@@ -108,9 +127,8 @@ namespace SlimeHole
         private IEnumerator SlimeThrowCooldown()
         {
             slimesRemaining--;
-    
             DisableInputActions();
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(3.5f);
             if (slimesRemaining > 0)
             {
                 EnableInputActions();

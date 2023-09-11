@@ -1,24 +1,24 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace SlimeHole
 {
     public class ScoreManager : MonoBehaviour
     {
-        public static int CurrentScore;
+        public int currentScore { get; private set; }
         [SerializeField] private TMP_Text scoreText;
 
-        
         private void Update()
         {
-            Debug.Log($"CurrentScore: {CurrentScore}");
+            Debug.Log($"CurrentScore: {currentScore}");
         }
 
         public void UpdateScore(int points)
         {
-            CurrentScore += points;
-            scoreText.SetText(CurrentScore.ToString());
+            currentScore += points;
+            scoreText.SetText(currentScore.ToString());
         }
         
     }
