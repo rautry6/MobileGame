@@ -3651,6 +3651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mix: {fileID: 24100000, guid: 656f8b9967f2988429b738fba5c47205, type: 2}
+  hasSettingsMenu: 0
   master: {fileID: 665752391}
   sfx: {fileID: 2107608755}
   music: {fileID: 704231408}
