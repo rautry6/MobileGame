@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class AudioSliderControls : MonoBehaviour
 {
     public AudioMixer mix;
-
+    public bool hasSettingsMenu = false;
     public Slider master, sfx, music;
 
     private void Start()
@@ -16,9 +16,13 @@ public class AudioSliderControls : MonoBehaviour
         mix.SetFloat("MasterVolume", Mathf.Log10(PlayerPrefs.GetFloat("MasterVolume", 1)) * 20);
         mix.SetFloat("SFXVolume", Mathf.Log10(PlayerPrefs.GetFloat("SFXVolume", 1)) * 20);
 
-        master.value = PlayerPrefs.GetFloat("MasterVolume", 1);
-        sfx.value = PlayerPrefs.GetFloat("SFXVolume", 1);
-        music.value = PlayerPrefs.GetFloat("MusicVolume", 1);
+        if (hasSettingsMenu)
+        {
+            master.value = PlayerPrefs.GetFloat("MasterVolume", 1);
+            sfx.value = PlayerPrefs.GetFloat("SFXVolume", 1);
+            music.value = PlayerPrefs.GetFloat("MusicVolume", 1);
+        }
+
     }
 
     public void ChangeMusicVol (float newValue)
