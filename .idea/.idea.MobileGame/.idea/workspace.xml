@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbc63034-5173-4201-8ecb-892a9c6dcd0b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MobileGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MobileGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Skeeball.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Skeeball.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Plinko/Bucket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Plinko/Bucket.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Skeeball/SkeeballInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Skeeball/SkeeballInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/SlimeHoleInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/SlimeHoleInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MinigameFinish.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MinigameFinish.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SlimeCare.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SlimeCare.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +13,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeCareCanvasManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeCareSceneManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeWander.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeHole/BoardTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeHole/GravitationalPull.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeHole/HoleTrigger.cs" root0="FORCE_HIGHLIGHTING" />
@@ -27,6 +25,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeHole/SlimeBoardHistory.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2V4zknpGLxtLEHakaOOH1Nmpt7B" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -99,6 +100,7 @@
       <workItem from="1694110290079" duration="625000" />
       <workItem from="1694120137549" duration="3821000" />
       <workItem from="1694226922503" duration="1532000" />
+      <workItem from="1694435425500" duration="9425000" />
     </task>
     <servers />
   </component>

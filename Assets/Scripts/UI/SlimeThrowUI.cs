@@ -1,70 +1,72 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeThrowUI : MonoBehaviour
+namespace UI
 {
-    [SerializeField] Transform slimeUIHolder;
-    [SerializeField] GameObject SlimeUIParentPrefab;
-    [SerializeField] Mesh currentSlimeMesh;
-    [SerializeField] Material currentSlimeMaterial;
-    [SerializeField] Material transparentMaterial;
-
-    public int numberOfThrows;
-    private List<GameObject> throwUis;
-    // Start is called before the first frame update
-    void Start()
+    public class SlimeThrowUI : MonoBehaviour
     {
-        //Test
-        throwUis = new List<GameObject>();
+        [SerializeField] Transform slimeUIHolder;
+        [SerializeField] GameObject SlimeUIParentPrefab;
+        [SerializeField] Mesh currentSlimeMesh;
+        [SerializeField] Material currentSlimeMaterial;
+        [SerializeField] Material transparentMaterial;
 
-        SetSlimeModel(currentSlimeMesh, currentSlimeMaterial);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void SetSlimeModel(Mesh slime, Material mat)
-    {
-        currentSlimeMesh = slime;
-
-        transparentMaterial.color = mat.color;
-
-        currentSlimeMaterial = transparentMaterial;
-
-        PopulateUI();
-    }
-
-    public void PopulateUI()
-    {
-        for(int i = 0; i < numberOfThrows;  i++)
+        public int numberOfThrows;
+        private List<GameObject> throwUis;
+        // Start is called before the first frame update
+        void Start()
         {
-            GameObject g = Instantiate(SlimeUIParentPrefab, slimeUIHolder);
-            GameObject gChild = g.transform.GetChild(0).gameObject;
+            //Test
+            throwUis = new List<GameObject>();
 
-            gChild.GetComponent<MeshFilter>().mesh = currentSlimeMesh;
-            gChild.GetComponent<MeshRenderer>().material = currentSlimeMaterial;
-
-            throwUis.Add(g);
+            SetSlimeModel(currentSlimeMesh, currentSlimeMaterial);
         }
-    }
 
-    public void Thrown(int currentThrow)
-    {
-        throwUis[numberOfThrows - currentThrow].SetActive(false);
-    }
-
-    public void ResetLastThrow()
-    {
-        for(int i = 0; i < throwUis.Count; i++)
+        // Update is called once per frame
+        void Update()
         {
-            if (!throwUis[i].activeInHierarchy)
+        
+        }
+
+        public void SetSlimeModel(Mesh slime, Material mat)
+        {
+            currentSlimeMesh = slime;
+
+            transparentMaterial.color = mat.color;
+
+            currentSlimeMaterial = transparentMaterial;
+
+            PopulateUI();
+        }
+
+        public void PopulateUI()
+        {
+            for(int i = 0; i < numberOfThrows;  i++)
             {
-                throwUis[i].SetActive(true);
-                return;
+                GameObject g = Instantiate(SlimeUIParentPrefab, slimeUIHolder);
+                GameObject gChild = g.transform.GetChild(0).gameObject;
+
+                gChild.GetComponent<MeshFilter>().mesh = currentSlimeMesh;
+                gChild.GetComponent<MeshRenderer>().material = currentSlimeMaterial;
+
+                throwUis.Add(g);
+            }
+        }
+
+        public void Thrown(int currentThrow)
+        {
+            throwUis[numberOfThrows - currentThrow].SetActive(false);
+        }
+
+        public void ResetLastThrow()
+        {
+            for(int i = 0; i < throwUis.Count; i++)
+            {
+                if (!throwUis[i].activeInHierarchy)
+                {
+                    throwUis[i].SetActive(true);
+                    return;
+                }
             }
         }
     }

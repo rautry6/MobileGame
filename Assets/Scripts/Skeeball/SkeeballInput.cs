@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using DG.Tweening;
 using Cinemachine;
+using UI;
 
 public class SkeeballInput : MonoBehaviour
 {
