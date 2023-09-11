@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MinigameFinish : MonoBehaviour
 {
@@ -39,11 +40,11 @@ public class MinigameFinish : MonoBehaviour
 
     public void BackToHomeWithPrize()
     {
-
+        SceneManager.LoadScene("SlimeCare", LoadSceneMode.Single);
     }
 
     public void BackToHomeNoPrize()
     {
-
+        SceneManager.LoadScene("SlimeCare", LoadSceneMode.Single);
     }
 }
