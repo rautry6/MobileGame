@@ -18,7 +18,14 @@ namespace MainMenu
 
         public void StartGame()
         {
-            SceneManager.LoadScene("SlimeCare");
+            if (PlayerPrefs.GetInt("FirstPlay", 0) == 0)
+            {
+                SceneManager.LoadScene("SlimeCreation");
+            }
+            else
+            {
+                SceneManager.LoadScene("SlimeCare");
+            }
         }
     }
 }
