@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd43eba45c6c9145aa2867a45b6aee2, type: 3}
   m_Name: Food2
   m_EditorClassIdentifier: 
-  prizeOption: 0
+  prizeOption: 2
   prizeName: Sardines
   prizeSprite: {fileID: 21300000, guid: 73e0a0e2991041742877f4e59caedf3f, type: 3}
   hungerChange: 300

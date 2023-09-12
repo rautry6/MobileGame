@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd43eba45c6c9145aa2867a45b6aee2, type: 3}
   m_Name: Food1
   m_EditorClassIdentifier: 
-  prizeOption: 0
+  prizeOption: 2
   prizeName: Pizza
   prizeSprite: {fileID: 21300000, guid: 83ce6702c58a0f54c95cd923a9763d2f, type: 3}
   hungerChange: 100
