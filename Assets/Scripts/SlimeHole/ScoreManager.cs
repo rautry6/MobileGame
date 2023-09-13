@@ -7,8 +7,12 @@ namespace SlimeHole
 {
     public class ScoreManager : MonoBehaviour
     {
-        public int currentScore { get; private set; }
         [SerializeField] private TMP_Text scoreText;
+        [SerializeField] private Prize[] prizes;
+        [SerializeField] private int[] scoreThresholds;
+
+        public int currentScore { get; private set; }
+        public Prize currentPrize { get; private set; }
 
         private void Update()
         {

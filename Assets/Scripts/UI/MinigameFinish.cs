@@ -3,6 +3,7 @@ using SlimeCare;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -10,6 +11,8 @@ namespace UI
     {
         [SerializeField] GameObject gameOverUi;
         [SerializeField] TMP_Text gameOverUiScore;
+        [SerializeField] Image prizeImage;
+        [SerializeField] TMP_Text prizeText;
 
         // Start is called before the first frame update
         void Start()
@@ -21,7 +24,7 @@ namespace UI
         {
             Screen.orientation = ScreenOrientation.Portrait;
         }
-        public void DisplayGameOverUi(int scoreValue)
+        public void DisplayGameOverUi(int scoreValue, Prize prize)
         {
             if (gameOverUi == null)
             {
@@ -33,6 +36,16 @@ namespace UI
             if (gameOverUiScore != null)
             {
                 gameOverUiScore.text = scoreValue.ToString();
+            }
+
+            if(prizeImage != null)
+            {
+                prizeImage.sprite = prize.PrizeSprite;
+            }
+
+            if(prizeText != null)
+            {
+                prizeText.text = prize.PrizeName;
             }
 
             //Set prize stuff
