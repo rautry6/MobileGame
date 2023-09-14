@@ -34,12 +34,15 @@ namespace SlimeHole
         private int currentThrow = 0;
         private bool _setScoreOnce = true;
 
+        private JellyMesh jellyMesh;
+
         private void Awake()
         {
             //Create new instance of the Input Controller
             controls = new PlinkoControls();
             rb = slime.GetComponent<Rigidbody>();
             startingPosition = slime.transform.position;
+            jellyMesh = slime.GetComponent<JellyMesh>();
         }
 
         private void OnEnable()
@@ -118,6 +121,9 @@ namespace SlimeHole
                 Vector3 forceVector = new Vector3(x * horizontalPower, y * verticalPower, forwardLaunchPower);
                 forceText.SetText($"Force: X: {forceVector.x}, Y: {forceVector.y}, Z: {forceVector.z}");
                 rb.AddForce(forceVector, ForceMode.Impulse);
+
+                //jellyMesh.enabled = true;
+
                 StartCoroutine(SlimeThrowCooldown());
                 _hasLaunched = true;
                 rb.useGravity = true;
@@ -139,6 +145,7 @@ namespace SlimeHole
 
         void ResetSlime()
         {
+            jellyMesh.enabled = false;
             rb.useGravity = false; 
             rb.velocity = Vector3.zero;
             rb.Sleep();
