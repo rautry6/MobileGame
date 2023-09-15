@@ -9459,8 +9459,11 @@ MonoBehaviour:
   input: {fileID: 900483852}
   scoreText: {fileID: 748861874}
   scoreSlider: {fileID: 1849510591}
-  prizes: []
-  scoreThresholds: 
+  prizes:
+  - {fileID: 11400000, guid: 4249ab8900dd85d4e83ffd523b79e905, type: 2}
+  - {fileID: 11400000, guid: ee821772cfe09274d8f221ab168cd243, type: 2}
+  - {fileID: 11400000, guid: 586529647c91ced43a3182058ece52d7, type: 2}
+  scoreThresholds: 204e0000409c000060ea0000
 --- !u!1 &698274721
 GameObject:
   m_ObjectHideFlags: 0

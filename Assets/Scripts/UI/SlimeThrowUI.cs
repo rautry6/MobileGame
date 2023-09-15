@@ -33,6 +33,7 @@ namespace UI
             currentSlimeMesh = slime;
 
             transparentMaterial.color = mat.color;
+            Debug.Log(mat.color.ToString());
 
             currentSlimeMaterial = transparentMaterial;
 

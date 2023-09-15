@@ -277,7 +277,7 @@ public class SkeeballInput : MonoBehaviour
         {
             //Game Over stuff
             powerBar.gameObject.SetActive(false);
-            gameOver.DisplayGameOverUi(scoreManager.score, scoreManager.currentPrize);
+            gameOver.DisplayGameOverUi(scoreManager.currentScore, scoreManager.currentPrize);
 
             return;
         }
