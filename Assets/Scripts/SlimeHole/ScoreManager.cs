@@ -14,6 +14,8 @@ namespace SlimeHole
         public int currentScore { get; private set; }
         public Prize currentPrize { get; private set; }
 
+        private int currentScoreThreshold = 0;
+
         private void Update()
         {
             Debug.Log($"CurrentScore: {currentScore}");
@@ -22,6 +24,13 @@ namespace SlimeHole
         public void UpdateScore(int points)
         {
             currentScore += points;
+
+            if( currentScoreThreshold < scoreThresholds.Length && currentScore >= scoreThresholds[currentScoreThreshold])
+            {
+                currentPrize = prizes[currentScoreThreshold];
+                currentScoreThreshold++;
+            }
+
             scoreText.SetText(currentScore.ToString());
         }
         

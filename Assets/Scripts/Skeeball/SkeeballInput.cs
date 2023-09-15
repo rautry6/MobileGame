@@ -63,6 +63,9 @@ public class SkeeballInput : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera vc;
     Vector3 vcStartingPosition;
     Vector3 vcOffsets;
+
+    private JellyMesh jellyMesh;
+
     private void Awake()
     {
         inputController = new PlinkoControls();
@@ -84,6 +87,8 @@ public class SkeeballInput : MonoBehaviour
         vcStartingPosition = vc.transform.position;
         vcOffsets = vc.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset;
         maxThrows = slimeThrowUI.numberOfThrows;
+
+        jellyMesh = slime.GetComponent<JellyMesh>();
     }
 
     private void OnEnable()
@@ -262,6 +267,7 @@ public class SkeeballInput : MonoBehaviour
 
         rb.AddForce(power * powerMultiplier, ForceMode.Impulse);
         rb.useGravity = true;
+        jellyMesh.enabled = true;
     }
 
     public void ResetSlime()
@@ -271,12 +277,14 @@ public class SkeeballInput : MonoBehaviour
         {
             //Game Over stuff
             powerBar.gameObject.SetActive(false);
-            gameOver.DisplayGameOverUi(scoreManager.score, scoreManager.currentPrize);
+            gameOver.DisplayGameOverUi(scoreManager.currentScore, scoreManager.currentPrize);
 
             return;
         }
 
         DOTween.KillAll();
+        jellyMesh.enabled = false;
+
 
         rb.useGravity = false;
         rb.constraints = RigidbodyConstraints.FreezeAll;

@@ -26,6 +26,8 @@ namespace UI
         }
         public void DisplayGameOverUi(int scoreValue, Prize prize)
         {
+            Debug.Log(prize);
+
             if (gameOverUi == null)
             {
                 return;

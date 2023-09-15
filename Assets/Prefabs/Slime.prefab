@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7634826782293834720}
   - component: {fileID: 7634826782293834733}
   - component: {fileID: 7634826782293834732}
+  - component: {fileID: 8891248384177106133}
+  - component: {fileID: 333844813419255417}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Slime
@@ -114,3 +116,32 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8891248384177106133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7634826782293834726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfbdaab03fc4da488d3012efec65df9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  src: {fileID: 0}
+--- !u!114 &333844813419255417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7634826782293834726}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd3a1da487469d04f82b8a16143392a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensity: 0.49
+  mass: 1
+  stiffness: 0.64
+  damping: 0.75
