@@ -1,3 +1,4 @@
+using System.Collections;
 using JelloFelloInterfaces;
 using SlimeCare;
 using TMPro;
@@ -54,11 +55,18 @@ namespace UI
         public void BackToHomeWithPrize()
         {
             SlimeCareStats.Instance.UpdateHealthAndHappiness(30f, 150f);
-            SceneManager.LoadScene("SlimeCare", LoadSceneMode.Single);
+            StartCoroutine(LoadSlimeCareRoutine());
+            
         }
 
         public void BackToHomeNoPrize()
         {
+            StartCoroutine(LoadSlimeCareRoutine());
+        }
+
+        private IEnumerator LoadSlimeCareRoutine()
+        {
+            yield return StartCoroutine(SceneChangeInstance.Instance.FillImage());
             SceneManager.LoadScene("SlimeCare", LoadSceneMode.Single);
         }
     }
