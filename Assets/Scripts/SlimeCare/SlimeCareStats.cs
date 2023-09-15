@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 namespace SlimeCare
 {
@@ -16,7 +17,12 @@ namespace SlimeCare
         private float maxHappiness = 600f;
         private Slider _healthSlider;
         private Slider _happinessSlider;
-        
+        private Material _slimeMaterial;
+        private float _redComponent, _greenComponent, _blueComponent;
+        private string _slimeName;
+        private bool _shouldTick;
+        private Material _transparentMaterial;
+
         private void Awake()
         {
             // Check if an instance already exists
@@ -38,14 +44,25 @@ namespace SlimeCare
         private void Start()
         {
             SceneManager.sceneLoaded += OnSceneLoaded;
-            FindAndAssignSliders();
         }
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
         {
             if (scene.name == "SlimeCare")
             {
+                _shouldTick = true;
                 FindAndAssignSliders();
+                _slimeName = PlayerPrefs.GetString("SlimeName");
+                var slimeColor = PlayerPrefs.GetString("SlimeColor");
+                var formattedColor = slimeColor.Substring(5, slimeColor.Length - 6);
+                var rgbaComponents = formattedColor.Split(',');
+                _redComponent = (float) double.Parse(rgbaComponents[0]);
+                _greenComponent = (float) double.Parse(rgbaComponents[1]);
+                _blueComponent = (float) double.Parse(rgbaComponents[2]);
+                _slimeMaterial = (Material)Resources.Load("Slime", typeof(Material));
+                _transparentMaterial = (Material) Resources.Load("Tranparent", typeof(Material));
+                _slimeMaterial.color = new Color(_redComponent, _greenComponent, _blueComponent, 1f);
+                _transparentMaterial.SetColor("_Color", new Color(_redComponent, _greenComponent, _blueComponent, 0.5f));
             }
         }
 
@@ -59,6 +76,7 @@ namespace SlimeCare
 
         private void Update()
         {
+            if (!_shouldTick) return;
             health -= Time.deltaTime;
             happiness -= Time.deltaTime;
 
