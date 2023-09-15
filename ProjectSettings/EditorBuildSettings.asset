@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 18a688a49fe206647be02bd253b2a66b
   - enabled: 1
+    path: Assets/Scenes/SlimeCreation.unity
+    guid: c84af67ccfbc49a4690f0f7499b1ad9f
+  - enabled: 1
     path: Assets/Scenes/SlimeCare.unity
     guid: a26066ad8e6e7944d89c27a2d937167f
   - enabled: 1

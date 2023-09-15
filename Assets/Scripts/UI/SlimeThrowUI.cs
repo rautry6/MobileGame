@@ -32,11 +32,6 @@ namespace UI
         {
             currentSlimeMesh = slime;
 
-            transparentMaterial.color = mat.color;
-            Debug.Log(mat.color.ToString());
-
-            currentSlimeMaterial = transparentMaterial;
-
             PopulateUI();
         }
 
@@ -48,7 +43,7 @@ namespace UI
                 GameObject gChild = g.transform.GetChild(0).gameObject;
 
                 gChild.GetComponent<MeshFilter>().mesh = currentSlimeMesh;
-                gChild.GetComponent<MeshRenderer>().material = currentSlimeMaterial;
+                gChild.GetComponent<MeshRenderer>().material = (Material) Resources.Load("Tranparent", typeof(Material));
 
                 throwUis.Add(g);
             }

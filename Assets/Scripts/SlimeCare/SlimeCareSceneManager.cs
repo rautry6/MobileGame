@@ -8,7 +8,13 @@ namespace SlimeCare
     {
         private void Start()
         {
+            SceneManager.sceneLoaded += OnSlimeCareSceneLoaded;
             LockScreenToLandscape();
+        }
+
+        private void OnSlimeCareSceneLoaded(Scene arg0, LoadSceneMode arg1)
+        {
+
         }
 
         public void LockScreenToLandscape()
