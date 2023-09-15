@@ -11,8 +11,10 @@ public class SkeeballScoreManager : MonoBehaviour
 
     [SerializeField] Prize[] prizes;
     [SerializeField] int[] scoreThresholds;
+
+    int currentScoreThreshold = 0;
     
-    public int score { get; private set; }
+    public int currentScore { get; private set; }
     public Prize currentPrize { get; private set; }
 
     // Start is called before the first frame update
@@ -29,8 +31,15 @@ public class SkeeballScoreManager : MonoBehaviour
 
     public void AddScore(int score)
     {
-        this.score += score;
-        scoreSlider.UpdateScore(this.score);
+        currentScore += score;
+
+        if (currentScoreThreshold < scoreThresholds.Length && currentScore >= scoreThresholds[currentScoreThreshold])
+        {
+            currentPrize = prizes[currentScoreThreshold];
+            currentScoreThreshold++;
+        }
+
+        scoreSlider.UpdateScore(currentScore);
 
         input.ResetSlime();
     }

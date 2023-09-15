@@ -31,6 +31,7 @@ namespace UI
         public void SetSlimeModel(Mesh slime, Material mat)
         {
             currentSlimeMesh = slime;
+
             PopulateUI();
         }
 

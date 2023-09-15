@@ -8,6 +8,7 @@ TagManager:
   - SkeeballHole
   - HealthSlider
   - HappinessSlider
+  - Board
   layers:
   - Default
   - TransparentFX
