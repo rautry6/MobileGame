@@ -12,7 +12,10 @@ namespace SlimeHole
             {
                 if (SlimeBoardHistory.WasOnBoardPreviously)
                 {
-                    scoreManager.UpdateScore(-1);
+                    if (scoreManager.currentScore > 0)
+                    {
+                        scoreManager.UpdateScore(-1);    
+                    }
                     audioSource.PlayOneShot(audioSource.clip);
                 }
             }

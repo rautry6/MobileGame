@@ -107,6 +107,7 @@ namespace UI
 
         private IEnumerator ReduceImageFillToZero()
         {
+            yield return new WaitForSecondsRealtime(0.5f);
             while (sceneChangeImage.fillAmount > 0.002f)
             {
                 sceneChangeImage.fillAmount -= fillSpeed * Time.deltaTime;
