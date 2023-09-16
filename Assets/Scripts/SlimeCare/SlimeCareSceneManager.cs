@@ -32,7 +32,7 @@ namespace SlimeCare
         }
         public void LoadSlimeHoleScene()
         {
-            SceneManager.LoadScene("SlimeHole", LoadSceneMode.Single);
+            SceneManager.LoadScene("TEST_SlimeHole", LoadSceneMode.Single);
         }
     
     }
