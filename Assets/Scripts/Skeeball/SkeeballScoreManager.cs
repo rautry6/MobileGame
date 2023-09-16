@@ -14,6 +14,9 @@ public class SkeeballScoreManager : MonoBehaviour
     [SerializeField] Prize[] prizes;
     [SerializeField] int[] scoreThresholds;
 
+    [SerializeField] private TMP_Text[] popUpScores;
+    [SerializeField] private Image[] popUpPowerUps;
+
     int currentScoreThreshold = 0;
     
     public int currentScore { get; private set; }
@@ -22,7 +25,11 @@ public class SkeeballScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        for(int i = 0; i < prizes.Length; i++)
+        {
+            popUpPowerUps[i].sprite = prizes[i].PrizeSprite;
+            popUpScores[i].text = scoreThresholds[i].ToString();
+        }
     }
 
     // Update is called once per frame

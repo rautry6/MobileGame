@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace SlimeHole
 {
@@ -14,7 +15,20 @@ namespace SlimeHole
         public int currentScore { get; private set; }
         public Prize currentPrize { get; private set; }
 
-        private int currentScoreThreshold = 0;
+        [SerializeField] private TMP_Text[] popUpScores;
+        [SerializeField] private Image[] popUpPowerUps;
+
+        int currentScoreThreshold = 0;
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            for (int i = 0; i < prizes.Length; i++)
+            {
+                popUpPowerUps[i].sprite = prizes[i].PrizeSprite;
+                popUpScores[i].text = scoreThresholds[i].ToString();
+            }
+        }
 
         private void Update()
         {

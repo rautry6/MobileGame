@@ -13,13 +13,14 @@ namespace UI
 
         public int numberOfThrows;
         private List<GameObject> throwUis;
+
         // Start is called before the first frame update
         void Start()
         {
             //Test
             throwUis = new List<GameObject>();
 
-            SetSlimeModel(currentSlimeMesh, currentSlimeMaterial);
+           
         }
 
         // Update is called once per frame
@@ -64,6 +65,11 @@ namespace UI
                     return;
                 }
             }
+        }
+
+        public void ShowSlimes()
+        {
+            SetSlimeModel(currentSlimeMesh, currentSlimeMaterial);
         }
     }
 }

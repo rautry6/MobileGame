@@ -70,9 +70,7 @@ public class SkeeballInput : MonoBehaviour
     {
         inputController = new PlinkoControls();
 
-
-        //Testing
-        canConfirm = true;
+        canConfirm = false;
         confirmingPosition = true;
 
         maxPowerMultiplier = powerBar.maxValue;
@@ -314,5 +312,10 @@ public class SkeeballInput : MonoBehaviour
     {
         currentThrow--;
         ResetSlime();
+    }
+
+    public void StartGame()
+    {
+        canConfirm = true;
     }
 }
