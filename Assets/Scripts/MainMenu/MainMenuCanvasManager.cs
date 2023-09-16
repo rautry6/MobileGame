@@ -1,3 +1,5 @@
+using System.Collections;
+using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,6 +20,13 @@ namespace MainMenu
 
         public void StartGame()
         {
+            StartCoroutine(HandleStartGameRoutine());
+        }
+
+        private IEnumerator HandleStartGameRoutine()
+        {
+            yield return StartCoroutine(SceneChangeInstance.Instance.FillImage());
+
             if (PlayerPrefs.GetInt("FirstPlay", 0) == 0)
             {
                 SceneManager.LoadScene("SlimeCreation");
