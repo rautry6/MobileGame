@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkeeballScoreManager : MonoBehaviour
 {
     [SerializeField] SkeeballInput input;
     [SerializeField] TMP_Text scoreText;
     [SerializeField] ScoreSlider scoreSlider;
+    [SerializeField] Image backwallPrizeImage;
 
     [SerializeField] Prize[] prizes;
     [SerializeField] int[] scoreThresholds;
@@ -36,6 +38,10 @@ public class SkeeballScoreManager : MonoBehaviour
         if (currentScoreThreshold < scoreThresholds.Length && currentScore >= scoreThresholds[currentScoreThreshold])
         {
             currentPrize = prizes[currentScoreThreshold];
+
+            backwallPrizeImage.sprite = prizes[currentScoreThreshold].PrizeSprite;
+            backwallPrizeImage.enabled = true;
+
             currentScoreThreshold++;
         }
 
