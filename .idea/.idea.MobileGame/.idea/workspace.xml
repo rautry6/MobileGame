@@ -6,11 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="bbc63034-5173-4201-8ecb-892a9c6dcd0b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MobileGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MobileGame/.idea/workspace.xml" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/Assets/Art/gentleman-font/GentlemanRegular-2OV3l SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/gentleman-font/GentlemanRegular-2OV3l SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/PlinkoControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/PlinkoControls.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/PlinkoControls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/PlinkoControls.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Physics Material/CornholeBoard.physicMaterial" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Physics Material/CornholeBoard.physicMaterial" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeCareSceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeCareSceneManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/OffBoardDetection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/OffBoardDetection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SlimeCreation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SlimeCreation.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu/MainMenuCanvasManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/MainMenuCanvasManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeCareSceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeCareSceneManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MinigameFinish.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MinigameFinish.cs" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +40,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeHole/ResetScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeHole/ScoreManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeHole/SlimeBoardHistory.cs" root0="FORCE_HIGHLIGHTING" />
+
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeHole/SlimeHoleInputVTwo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Testing/SlimeHoleThrow.cs" root0="FORCE_HIGHLIGHTING" />
+
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/SceneChangeInstance.cs" root0="FORCE_HIGHLIGHTING" />
+
   </component>
   <component name="ProjectId" id="2V4zknpGLxtLEHakaOOH1Nmpt7B" />
   <component name="ProjectLevelVcsManager">
@@ -110,7 +127,9 @@
       <workItem from="1694435425500" duration="9425000" />
       <workItem from="1694649918024" duration="743000" />
       <workItem from="1694723712280" duration="9613000" />
-      <workItem from="1694781631573" duration="4856000" />
+
+      <workItem from="1694864463475" duration="10081000" />
+
     </task>
     <servers />
   </component>

@@ -43,6 +43,7 @@ namespace SlimeCare
 
         public void LoadSlimeHoleScene()
         {
+
             StartCoroutine(OnSlimeHoleNavigation());
         }
 
@@ -50,6 +51,7 @@ namespace SlimeCare
         {
             yield return StartCoroutine(SceneChangeInstance.Instance.FillImage());
             SceneManager.LoadScene("SlimeHole", LoadSceneMode.Single);
+
         }
     }
 }

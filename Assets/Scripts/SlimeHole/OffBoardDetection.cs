@@ -5,6 +5,7 @@ namespace SlimeHole
     public class OffBoardDetection : MonoBehaviour
     {
         [SerializeField] private ScoreManager scoreManager;
+        [SerializeField] private AudioSource audioSource;
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Slime"))
@@ -12,6 +13,7 @@ namespace SlimeHole
                 if (SlimeBoardHistory.WasOnBoardPreviously)
                 {
                     scoreManager.UpdateScore(-1);
+                    audioSource.PlayOneShot(audioSource.clip);
                 }
             }
         }

@@ -189,6 +189,15 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NewInput"",
+                    ""type"": ""Button"",
+                    ""id"": ""8d9f1b11-d4c1-41ba-bed9-5237b492ed44"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -255,6 +264,17 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""527d94ae-f9c9-48a7-83bd-45e0021d2d92"",
+                    ""path"": ""<Touchscreen>/Press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NewInput"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -342,6 +362,7 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
         m_SlimeHole = asset.FindActionMap("SlimeHole", throwIfNotFound: true);
         m_SlimeHole_Input = m_SlimeHole.FindAction("Input", throwIfNotFound: true);
         m_SlimeHole_Reset = m_SlimeHole.FindAction("Reset", throwIfNotFound: true);
+        m_SlimeHole_NewInput = m_SlimeHole.FindAction("NewInput", throwIfNotFound: true);
         // Skeeball
         m_Skeeball = asset.FindActionMap("Skeeball", throwIfNotFound: true);
         m_Skeeball_Confirm = m_Skeeball.FindAction("Confirm", throwIfNotFound: true);
@@ -471,12 +492,14 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
     private List<ISlimeHoleActions> m_SlimeHoleActionsCallbackInterfaces = new List<ISlimeHoleActions>();
     private readonly InputAction m_SlimeHole_Input;
     private readonly InputAction m_SlimeHole_Reset;
+    private readonly InputAction m_SlimeHole_NewInput;
     public struct SlimeHoleActions
     {
         private @PlinkoControls m_Wrapper;
         public SlimeHoleActions(@PlinkoControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Input => m_Wrapper.m_SlimeHole_Input;
         public InputAction @Reset => m_Wrapper.m_SlimeHole_Reset;
+        public InputAction @NewInput => m_Wrapper.m_SlimeHole_NewInput;
         public InputActionMap Get() { return m_Wrapper.m_SlimeHole; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -492,6 +515,9 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
             @Reset.started += instance.OnReset;
             @Reset.performed += instance.OnReset;
             @Reset.canceled += instance.OnReset;
+            @NewInput.started += instance.OnNewInput;
+            @NewInput.performed += instance.OnNewInput;
+            @NewInput.canceled += instance.OnNewInput;
         }
 
         private void UnregisterCallbacks(ISlimeHoleActions instance)
@@ -502,6 +528,9 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
             @Reset.started -= instance.OnReset;
             @Reset.performed -= instance.OnReset;
             @Reset.canceled -= instance.OnReset;
+            @NewInput.started -= instance.OnNewInput;
+            @NewInput.performed -= instance.OnNewInput;
+            @NewInput.canceled -= instance.OnNewInput;
         }
 
         public void RemoveCallbacks(ISlimeHoleActions instance)
@@ -583,6 +612,7 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
     {
         void OnInput(InputAction.CallbackContext context);
         void OnReset(InputAction.CallbackContext context);
+        void OnNewInput(InputAction.CallbackContext context);
     }
     public interface ISkeeballActions
     {
