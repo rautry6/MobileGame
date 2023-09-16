@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using JelloFelloInterfaces;
+using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,13 +11,7 @@ namespace SlimeCare
     {
         private void Start()
         {
-            SceneManager.sceneLoaded += OnSlimeCareSceneLoaded;
             LockScreenToLandscape();
-        }
-
-        private void OnSlimeCareSceneLoaded(Scene arg0, LoadSceneMode arg1)
-        {
-
         }
 
         public void LockScreenToLandscape()
@@ -24,16 +21,37 @@ namespace SlimeCare
 
         public void LoadPlinkoScene()
         {
+            StartCoroutine(OnPlinkoNavigation());
+        }
+
+        private IEnumerator OnPlinkoNavigation()
+        {
+            yield return StartCoroutine(SceneChangeInstance.Instance.FillImage());
             SceneManager.LoadScene("Plinko", LoadSceneMode.Single);
         }
+
         public void LoadSkeeballScene()
         {
+            StartCoroutine(OnSkeeballNavigation());
+        }
+
+        private IEnumerator OnSkeeballNavigation()
+        {
+            yield return StartCoroutine(SceneChangeInstance.Instance.FillImage());
             SceneManager.LoadScene("Skeeball", LoadSceneMode.Single);
         }
+
         public void LoadSlimeHoleScene()
         {
-            SceneManager.LoadScene("TEST_SlimeHole", LoadSceneMode.Single);
+
+            StartCoroutine(OnSlimeHoleNavigation());
         }
-    
+
+        private IEnumerator OnSlimeHoleNavigation()
+        {
+            yield return StartCoroutine(SceneChangeInstance.Instance.FillImage());
+            SceneManager.LoadScene("SlimeHole", LoadSceneMode.Single);
+
+        }
     }
 }
