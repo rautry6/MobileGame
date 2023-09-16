@@ -36,6 +36,7 @@ namespace SlimeHole
 
         private JellyMesh jellyMesh;
 
+        private bool canThrow = false;
         private void Awake()
         {
             //Create new instance of the Input Controller
@@ -72,6 +73,8 @@ namespace SlimeHole
         void Update()
         {
             
+            if(!canThrow) { return; }
+
             if (slimesRemaining <= 0 && _setScoreOnce)
             {
                 touch.Disable();
@@ -153,6 +156,11 @@ namespace SlimeHole
             slime.transform.position = startingPosition;
             _hasLaunched = false;
             SlimeBoardHistory.WasOnBoardPreviously = false;
+        }
+
+        public void StartGame()
+        {
+            canThrow = true;
         }
     }
 }
