@@ -18,4 +18,8 @@ public class Prize : ScriptableObject
     public string PrizeName => prizeName;
 
     public PrizeOptions PrizeOption => prizeOption;
+
+    public float HungerChange => hungerChange;
+
+    public float HappinessChange => happinessChange;
 }
