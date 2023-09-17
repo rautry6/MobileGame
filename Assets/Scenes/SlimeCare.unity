@@ -500,7 +500,7 @@ PrefabInstance:
     - target: {fileID: 3770536723436866864, guid: d2f8ee277cbb27e4f9746b49d0327d27, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 917782919}
+      objectReference: {fileID: 2104985651}
     - target: {fileID: 3770536723436866868, guid: d2f8ee277cbb27e4f9746b49d0327d27, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -851,7 +851,7 @@ Transform:
   - {fileID: 735476543}
   - {fileID: 1298271710}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &325687260
 MonoBehaviour:
@@ -1898,7 +1898,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7634826782293834722, guid: 097f86f2828018c468035ff39c0e9f7b, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7634826782293834722, guid: 097f86f2828018c468035ff39c0e9f7b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2050,7 +2050,7 @@ PrefabInstance:
     - target: {fileID: 3770536723436866864, guid: d2f8ee277cbb27e4f9746b49d0327d27, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 917782919}
+      objectReference: {fileID: 2104985651}
     - target: {fileID: 3770536723436866868, guid: d2f8ee277cbb27e4f9746b49d0327d27, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4069,7 +4069,7 @@ PrefabInstance:
     - target: {fileID: 3770536723436866864, guid: d2f8ee277cbb27e4f9746b49d0327d27, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 917782919}
+      objectReference: {fileID: 2104985651}
     - target: {fileID: 3770536723436866868, guid: d2f8ee277cbb27e4f9746b49d0327d27, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4262,7 +4262,7 @@ PrefabInstance:
     - target: {fileID: 3770536723436866864, guid: d2f8ee277cbb27e4f9746b49d0327d27, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 917782919}
+      objectReference: {fileID: 2104985651}
     - target: {fileID: 3770536723436866868, guid: d2f8ee277cbb27e4f9746b49d0327d27, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4456,7 +4456,6 @@ GameObject:
   - component: {fileID: 917782916}
   - component: {fileID: 917782918}
   - component: {fileID: 917782917}
-  - component: {fileID: 917782919}
   m_Layer: 5
   m_Name: InventoryPanel
   m_TagString: Untagged
@@ -4525,37 +4524,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917782915}
   m_CullTransparentMesh: 1
---- !u!114 &917782919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 917782915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03d13a0112502c54398328fc4bb659a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryButtons:
-  - {fileID: 406481557}
-  - {fileID: 1694650769}
-  - {fileID: 1222105558}
-  - {fileID: 899441440}
-  - {fileID: 860710508}
-  - {fileID: 487567795}
-  - {fileID: 1436877413}
-  - {fileID: 246484187}
-  selectedItemImage: {fileID: 673533125}
-  hungerChangeText: {fileID: 391108334}
-  happinessChangeText: {fileID: 1458376580}
-  testPrizes:
-  - {fileID: 11400000, guid: 4249ab8900dd85d4e83ffd523b79e905, type: 2}
-  - {fileID: 11400000, guid: ee821772cfe09274d8f221ab168cd243, type: 2}
-  - {fileID: 11400000, guid: 586529647c91ced43a3182058ece52d7, type: 2}
-  - {fileID: 11400000, guid: ee821772cfe09274d8f221ab168cd243, type: 2}
-  - {fileID: 11400000, guid: ee821772cfe09274d8f221ab168cd243, type: 2}
-  - {fileID: 11400000, guid: 586529647c91ced43a3182058ece52d7, type: 2}
 --- !u!1 &925658604
 GameObject:
   m_ObjectHideFlags: 0
@@ -4881,7 +4849,7 @@ GameObject:
   - component: {fileID: 1004545328}
   - component: {fileID: 1004545327}
   m_Layer: 5
-  m_Name: Inventory
+  m_Name: InventoryIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4967,6 +4935,18 @@ MonoBehaviour:
       - m_Target: {fileID: 735476544}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2104985651}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: UpdateUi
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5474,7 +5454,7 @@ Transform:
   m_Children:
   - {fileID: 673391646}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
 --- !u!1 &1159739505
 GameObject:
@@ -5612,7 +5592,7 @@ RectTransform:
   - {fileID: 606700118}
   - {fileID: 917782916}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5680,7 +5660,7 @@ PrefabInstance:
     - target: {fileID: 3770536723436866864, guid: d2f8ee277cbb27e4f9746b49d0327d27, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 917782919}
+      objectReference: {fileID: 2104985651}
     - target: {fileID: 3770536723436866868, guid: d2f8ee277cbb27e4f9746b49d0327d27, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6466,7 +6446,7 @@ PrefabInstance:
     - target: {fileID: 3770536723436866864, guid: d2f8ee277cbb27e4f9746b49d0327d27, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 917782919}
+      objectReference: {fileID: 2104985651}
     - target: {fileID: 3770536723436866868, guid: d2f8ee277cbb27e4f9746b49d0327d27, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7457,7 +7437,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 917782919}
+      - m_Target: {fileID: 2104985651}
         m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
         m_MethodName: UsePrize
         m_Mode: 1
@@ -7517,7 +7497,7 @@ PrefabInstance:
     - target: {fileID: 3770536723436866864, guid: d2f8ee277cbb27e4f9746b49d0327d27, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 917782919}
+      objectReference: {fileID: 2104985651}
     - target: {fileID: 3770536723436866868, guid: d2f8ee277cbb27e4f9746b49d0327d27, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8249,7 +8229,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2027123977
 GameObject:
@@ -8778,6 +8758,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2075975560}
   m_CullTransparentMesh: 1
+--- !u!1 &2104985649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2104985650}
+  - component: {fileID: 2104985651}
+  m_Layer: 0
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2104985650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104985649}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2286.4155, y: 385.20224, z: 953.48975}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2104985651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104985649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03d13a0112502c54398328fc4bb659a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryButtons:
+  - {fileID: 406481557}
+  - {fileID: 1694650769}
+  - {fileID: 1222105558}
+  - {fileID: 899441440}
+  - {fileID: 860710508}
+  - {fileID: 487567795}
+  - {fileID: 1436877413}
+  - {fileID: 246484187}
+  selectedItemImage: {fileID: 673533125}
+  hungerChangeText: {fileID: 391108334}
+  happinessChangeText: {fileID: 1458376580}
+  testPrizes:
+  - {fileID: 11400000, guid: 4249ab8900dd85d4e83ffd523b79e905, type: 2}
+  - {fileID: 11400000, guid: ee821772cfe09274d8f221ab168cd243, type: 2}
+  - {fileID: 11400000, guid: 586529647c91ced43a3182058ece52d7, type: 2}
+  - {fileID: 11400000, guid: ee821772cfe09274d8f221ab168cd243, type: 2}
+  - {fileID: 11400000, guid: ee821772cfe09274d8f221ab168cd243, type: 2}
+  - {fileID: 11400000, guid: 586529647c91ced43a3182058ece52d7, type: 2}
 --- !u!1 &2124295812
 GameObject:
   m_ObjectHideFlags: 0
@@ -8808,7 +8851,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2124295814
 MonoBehaviour:
@@ -8947,7 +8990,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3770536723038037925
 PrefabInstance:
@@ -8963,7 +9006,7 @@ PrefabInstance:
     - target: {fileID: 3770536723436866864, guid: d2f8ee277cbb27e4f9746b49d0327d27, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 917782919}
+      objectReference: {fileID: 2104985651}
     - target: {fileID: 3770536723436866868, guid: d2f8ee277cbb27e4f9746b49d0327d27, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

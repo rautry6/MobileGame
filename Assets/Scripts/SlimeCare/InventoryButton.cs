@@ -32,7 +32,12 @@ public class InventoryButton : MonoBehaviour
     {
         currentPrize = prize;
 
-        prizeName.text = prize.PrizeName;
+        if(prize == null)
+        {
+            return;
+        }
+
+        prizeName.text = prize.PrizeName; 
         prizeQuantity.text = quantity.ToString();
         prizeImage.sprite = prize.PrizeSprite;
         prizeImage.enabled = true;

@@ -21,10 +21,10 @@ public class Inventory : MonoBehaviour
 
     private Prize currentPrize;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _prizeInventory = new List<InventoryItem>();
-        SceneManager.sceneLoaded += RetrieveWonPrize;
+        //SceneManager.sceneLoaded += RetrieveWonPrize;
 
         for (int i = 0; i < inventoryButtons.Length; i++)
         {
@@ -80,12 +80,16 @@ public class Inventory : MonoBehaviour
 
     public void AddPrizeToInventory(Prize prizeToAdd)
     {
+        if(_prizeInventory == null)
+        {
+            return;
+        }
+
         foreach(InventoryItem inventoryItem in _prizeInventory)
         {
             if(inventoryItem.Prize == prizeToAdd)
             {
                 inventoryItem.Quantity++;
-                UpdateUi();
                 return;
             }
         }
@@ -94,8 +98,6 @@ public class Inventory : MonoBehaviour
         InventoryItem item = new InventoryItem(prizeToAdd, 1);
 
         _prizeInventory.Add(item);
-
-        UpdateUi();
     }
 
     public void UsePrize()

@@ -15,6 +15,8 @@ namespace UI
         [SerializeField] Image prizeImage;
         [SerializeField] TMP_Text prizeText;
 
+        private Prize prizeToTakeBack;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -33,6 +35,8 @@ namespace UI
             {
                 return;
             }
+
+            prizeToTakeBack = prize;
 
             gameOverUi.SetActive(true);
 
@@ -56,7 +60,7 @@ namespace UI
 
         public void BackToHomeWithPrize()
         {
-            SlimeCareStats.Instance.UpdateHealthAndHappiness(30f, 150f);
+            SlimeCareStats.Instance.SetPrize(prizeToTakeBack);
             StartCoroutine(LoadSlimeCareRoutine());
             
         }
