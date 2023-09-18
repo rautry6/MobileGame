@@ -122,7 +122,11 @@ public class Inventory : MonoBehaviour
 
                 UpdateUi();
 
+                Prize prize = inventoryItem.Prize;
+
                 //Code to update values for health and happiness
+                SlimeCareStats.Instance.UpdateHealthAndHappiness(prize.HungerChange, prize.HappinessChange);
+
                 return;
             }
         }
