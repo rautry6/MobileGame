@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
         //Testing
         foreach (Prize prize in testPrizes)
         {
-            AddPrizeToInventory(prize);
+            //AddPrizeToInventory(prize);
         }
     }
 
