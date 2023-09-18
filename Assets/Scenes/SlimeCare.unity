@@ -4722,7 +4722,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Games
+  m_text: Items
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 46cd191b27134da4999421d6793a11a6, type: 2}
   m_sharedMaterial: {fileID: 4384783297149711852, guid: 46cd191b27134da4999421d6793a11a6, type: 2}
@@ -4749,7 +4749,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.4
+  m_fontSize: 27.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4969,14 +4969,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.59183294, b: 0.8018868, a: 1}
+  m_Color: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bd3ba88fbb081e64796ca2976b6a2e1d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb948dc02ceed2945ba5450bf66c15ab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
