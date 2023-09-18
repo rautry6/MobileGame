@@ -49,7 +49,8 @@ namespace SlimeCare
         private IEnumerator OnSlimeHoleNavigation()
         {
             yield return StartCoroutine(SceneChangeInstance.Instance.FillImage());
-            SceneManager.LoadScene("SlimeHole", LoadSceneMode.Single);
+            SceneManager.LoadScene("TEST_SlimeHole", LoadSceneMode.Single);
+
         }
     }
 }

@@ -6,11 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="bbc63034-5173-4201-8ecb-892a9c6dcd0b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MobileGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MobileGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/SlimeCareGrass/Grass pattern 06.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/SlimeCareGrass/Grass pattern 06.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/JellyMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/JellyMat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Slime.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Slime.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tranparent.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Tranparent.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SlimeCreation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SlimeCreation.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu/MainMenuCanvasManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/MainMenuCanvasManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeCareSceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeCareSceneManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MinigameFinish.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MinigameFinish.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SlimeCare.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SlimeCare.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SlimeCare/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SlimeCare/LightingData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SlimeCare/LightingData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SlimeCare/LightingData.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SlimeCare/ReflectionProbe-0.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SlimeCare/ReflectionProbe-0.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SlimeCare/ReflectionProbe-0.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SlimeCare/ReflectionProbe-0.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeCareStates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeCareStates.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeCareStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeCareStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeWander.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeWander.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +37,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeHole/ResetScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeHole/ScoreManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeHole/SlimeBoardHistory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeHole/SlimeHoleInputVTwo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Testing/SlimeHoleThrow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/SceneChangeInstance.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2V4zknpGLxtLEHakaOOH1Nmpt7B" />
@@ -110,7 +121,8 @@
       <workItem from="1694435425500" duration="9425000" />
       <workItem from="1694649918024" duration="743000" />
       <workItem from="1694723712280" duration="9613000" />
-      <workItem from="1694781631573" duration="4856000" />
+      <workItem from="1694864463475" duration="11179000" />
+      <workItem from="1694975109234" duration="5999000" />
     </task>
     <servers />
   </component>
