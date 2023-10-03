@@ -742,14 +742,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.42286432, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: b7450a0073b63a14596a9e28b6f15d31, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2021,14 +2021,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278873444}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1155191211}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2054,7 +2054,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9c2808f53813c6f45a188214b83798c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3dc1bd90f13a8014b9762c444afbc601, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2529,14 +2529,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626414117}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1155191211}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2575,7 +2575,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9c2808f53813c6f45a188214b83798c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2b67bebe0526034ca0f13db851abf6e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3246,11 +3246,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1693418544769006297, guid: fcc9818a28e5e07439852d7673f9092d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 559.8202
+      value: 246.82234
       objectReference: {fileID: 0}
     - target: {fileID: 1693418544769006297, guid: fcc9818a28e5e07439852d7673f9092d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -49.104614
+      value: -108.70962
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933739033886839299, guid: fcc9818a28e5e07439852d7673f9092d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5062623629223238035, guid: fcc9818a28e5e07439852d7673f9092d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3262,11 +3266,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5062623629223238035, guid: fcc9818a28e5e07439852d7673f9092d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 178.27339
+      value: 73.94078
       objectReference: {fileID: 0}
     - target: {fileID: 5062623629223238035, guid: fcc9818a28e5e07439852d7673f9092d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -49.104614
+      value: -108.70962
       objectReference: {fileID: 0}
     - target: {fileID: 7080188851157920066, guid: fcc9818a28e5e07439852d7673f9092d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3280,6 +3284,14 @@ PrefabInstance:
       propertyPath: m_enableVertexGradient
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8119035752562749899, guid: fcc9818a28e5e07439852d7673f9092d, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119035752562749899, guid: fcc9818a28e5e07439852d7673f9092d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 01ec290a3ed2d83458fc4621535089a0, type: 3}
     - target: {fileID: 8119035752562749900, guid: fcc9818a28e5e07439852d7673f9092d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
