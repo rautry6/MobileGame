@@ -9,6 +9,8 @@ using UnityEngine.InputSystem.EnhancedTouch;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory Instance { get; private set; }
+
     [SerializeField] InventoryButton[] inventoryButtons;
     [SerializeField] Image selectedItemImage;
     [SerializeField] TMP_Text hungerChangeText;
@@ -23,6 +25,17 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        // Check if an instance already exists
+        if (Instance != null && Instance != this)
+        {
+            // If an instance already exists and it's not this, then destroy this. This enforces our singleton pattern.
+            Destroy(gameObject);
+            return;
+        }
+
+        // If no instance exists, then this becomes the instance.
+        Instance = this;
+
         _prizeInventory = new List<InventoryItem>();
         //SceneManager.sceneLoaded += RetrieveWonPrize;
 
@@ -37,6 +50,8 @@ public class Inventory : MonoBehaviour
         {
             //AddPrizeToInventory(prize);
         }
+
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
