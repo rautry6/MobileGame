@@ -7,18 +7,8 @@ using UnityEngine.SceneManagement;
 
 namespace SlimeCare
 {
-    public class SlimeCareSceneManager : MonoBehaviour, IOrientLandscape
+    public class SlimeCareSceneManager : MonoBehaviour
     {
-        private void Start()
-        {
-            LockScreenToLandscape();
-        }
-
-        public void LockScreenToLandscape()
-        {
-            Screen.orientation = ScreenOrientation.LandscapeLeft;
-        }
-
         public void LoadPlinkoScene()
         {
             StartCoroutine(OnPlinkoNavigation());

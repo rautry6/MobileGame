@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class MinigameFinish : MonoBehaviour, IOrientPortrait
+    public class MinigameFinish : MonoBehaviour
     {
         [SerializeField] GameObject gameOverUi;
         [SerializeField] TMP_Text gameOverUiScore;
@@ -16,17 +16,7 @@ namespace UI
         [SerializeField] TMP_Text prizeText;
 
         private Prize prizeToTakeBack;
-
-        // Start is called before the first frame update
-        void Start()
-        {
-            LockScreenToPortrait();
-        }
-
-        public void LockScreenToPortrait()
-        {
-            Screen.orientation = ScreenOrientation.Portrait;
-        }
+        
         public void DisplayGameOverUi(int scoreValue, Prize prize)
         {
             Debug.Log(prize);
