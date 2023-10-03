@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbc63034-5173-4201-8ecb-892a9c6dcd0b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MobileGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MobileGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/gentleman-font/GentlemanRegular-2OV3l SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/gentleman-font/GentlemanRegular-2OV3l SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Slime.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Slime.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tranparent.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Tranparent.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Plinko.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Plinko.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Skeeball.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Skeeball.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SlimeHole.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SlimeHole.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TEST_SlimeHole.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TEST_SlimeHole.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeCareSceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeCareSceneManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MinigameFinish.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MinigameFinish.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
