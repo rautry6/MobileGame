@@ -57,6 +57,7 @@ namespace UI
 
         public void BackToHomeNoPrize()
         {
+            SlimeCareStats.Instance.SetPrize(null);
             StartCoroutine(LoadSlimeCareRoutine());
         }
 

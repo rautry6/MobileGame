@@ -11,6 +11,7 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory Instance { get; private set; }
 
+    [SerializeField] GameObject inventoryPanel;
     [SerializeField] InventoryButton[] inventoryButtons;
     private int startingButtonCount;
     [SerializeField] Image selectedItemImage;
@@ -53,6 +54,7 @@ public class Inventory : MonoBehaviour
         }
 
         startingButtonCount = inventoryButtons.Length;
+        inventoryPanel.SetActive(false);
 
         DontDestroyOnLoad(gameObject);
     }
@@ -168,21 +170,27 @@ public class Inventory : MonoBehaviour
 
     public void GetReferences()
     {
-        GameObject inventoryButtonsObject = GameObject.Find("InventoryButtons");
+        inventoryPanel = GameObject.Find("InventoryPanel");
 
-        inventoryButtons = new InventoryButton[startingButtonCount];
-
-        if(inventoryButtonsObject != null)
+        if(inventoryPanel != null)
         {
-            for(int i =0; i < inventoryButtonsObject.transform.childCount; i++)
-            {
-                inventoryButtons[i] = inventoryButtonsObject.transform.GetChild(i).GetComponent<InventoryButton>();
-            }
-        }
+            GameObject inventoryButtonsObject = GameObject.Find("InventoryButtons");
 
-        selectedItemImage = GameObject.Find("Selected Prize Image").GetComponent<Image>();
-        happinessChangeText = GameObject.Find("HappinessText").GetComponent<TMP_Text>();
-        hungerChangeText = GameObject.Find("HungerText").GetComponent<TMP_Text>();
+            inventoryButtons = new InventoryButton[startingButtonCount];
+
+            if (inventoryButtonsObject != null)
+            {
+                for (int i = 0; i < inventoryButtonsObject.transform.childCount; i++)
+                {
+                    inventoryButtons[i] = inventoryButtonsObject.transform.GetChild(i).GetComponent<InventoryButton>();
+                }
+            }
+
+            selectedItemImage = GameObject.Find("Selected Prize Image").GetComponent<Image>();
+            happinessChangeText = GameObject.Find("HappinessText").GetComponent<TMP_Text>();
+            hungerChangeText = GameObject.Find("HungerText").GetComponent<TMP_Text>();
+            inventoryPanel.SetActive(false);
+        }
     }
 
 }
