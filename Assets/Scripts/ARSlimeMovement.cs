@@ -15,10 +15,12 @@ public class ARSlimeMovement : MonoBehaviour
     private ARPlaneManager planeManager;
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
+    private Camera cam;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -36,7 +38,7 @@ public class ARSlimeMovement : MonoBehaviour
     {
         float newY = float.MaxValue;
 
-        if (raycastManager.Raycast(slime.transform.position, hits, TrackableType.PlaneWithinPolygon))
+        if (raycastManager.Raycast(cam.WorldToScreenPoint(slime.transform.position), hits, TrackableType.PlaneWithinPolygon))
         {
             foreach (ARRaycastHit hit in hits)
             {
