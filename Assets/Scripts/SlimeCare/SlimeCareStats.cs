@@ -75,6 +75,7 @@ namespace SlimeCare
 
 
                 Inventory.Instance?.AddPrizeToInventory(wonPrize);
+                Inventory.Instance?.GetReferences();
             }
         }
 

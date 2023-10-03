@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
     public static Inventory Instance { get; private set; }
 
     [SerializeField] InventoryButton[] inventoryButtons;
+    private int startingButtonCount;
     [SerializeField] Image selectedItemImage;
     [SerializeField] TMP_Text hungerChangeText;
     [SerializeField] TMP_Text happinessChangeText;
@@ -50,6 +51,8 @@ public class Inventory : MonoBehaviour
         {
             //AddPrizeToInventory(prize);
         }
+
+        startingButtonCount = inventoryButtons.Length;
 
         DontDestroyOnLoad(gameObject);
     }
@@ -163,5 +166,23 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void GetReferences()
+    {
+        GameObject inventoryButtonsObject = GameObject.Find("InventoryButtons");
+
+        inventoryButtons = new InventoryButton[startingButtonCount];
+
+        if(inventoryButtonsObject != null)
+        {
+            for(int i =0; i < inventoryButtonsObject.transform.childCount; i++)
+            {
+                inventoryButtons[i] = inventoryButtonsObject.transform.GetChild(i).GetComponent<InventoryButton>();
+            }
+        }
+
+        selectedItemImage = GameObject.Find("Selected Prize Image").GetComponent<Image>();
+        happinessChangeText = GameObject.Find("HappinessText").GetComponent<TMP_Text>();
+        hungerChangeText = GameObject.Find("HungerText").GetComponent<TMP_Text>();
+    }
 
 }
