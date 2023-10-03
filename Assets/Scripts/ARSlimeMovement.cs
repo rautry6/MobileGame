@@ -31,7 +31,7 @@ public class ARSlimeMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CheckPositions();
+      
     }
 
     public void CheckPositions()
