@@ -26,4 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TEST_SlimeHole.unity
     guid: 8a1a131963b0e6441bde0f88985542fb
-  m_configObjects: {}
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 0c00250892762e24487961b8185f257f, type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 6a9bba9561da7504a916ece7724a0522, type: 2}
+    com.unity.xr.magicleap.magic_leap_settings: {fileID: 11400000, guid: e7b807fc8cb7e4444b6cdd4400eaa060, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 97d94771f872421458808b6ec78f3c89, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: f90cb81fc4662d64e8aca2d759eb2f2f, type: 2}

@@ -9,7 +9,11 @@ using UnityEngine.InputSystem.EnhancedTouch;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory Instance { get; private set; }
+
+    [SerializeField] GameObject inventoryPanel;
     [SerializeField] InventoryButton[] inventoryButtons;
+    private int startingButtonCount;
     [SerializeField] Image selectedItemImage;
     [SerializeField] TMP_Text hungerChangeText;
     [SerializeField] TMP_Text happinessChangeText;
@@ -23,6 +27,17 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        // Check if an instance already exists
+        if (Instance != null && Instance != this)
+        {
+            // If an instance already exists and it's not this, then destroy this. This enforces our singleton pattern.
+            Destroy(gameObject);
+            return;
+        }
+
+        // If no instance exists, then this becomes the instance.
+        Instance = this;
+
         _prizeInventory = new List<InventoryItem>();
         //SceneManager.sceneLoaded += RetrieveWonPrize;
 
@@ -37,6 +52,11 @@ public class Inventory : MonoBehaviour
         {
             //AddPrizeToInventory(prize);
         }
+
+        startingButtonCount = inventoryButtons.Length;
+        inventoryPanel.SetActive(false);
+
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
@@ -148,5 +168,29 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void GetReferences()
+    {
+        inventoryPanel = GameObject.Find("InventoryPanel");
+
+        if(inventoryPanel != null)
+        {
+            GameObject inventoryButtonsObject = GameObject.Find("InventoryButtons");
+
+            inventoryButtons = new InventoryButton[startingButtonCount];
+
+            if (inventoryButtonsObject != null)
+            {
+                for (int i = 0; i < inventoryButtonsObject.transform.childCount; i++)
+                {
+                    inventoryButtons[i] = inventoryButtonsObject.transform.GetChild(i).GetComponent<InventoryButton>();
+                }
+            }
+
+            selectedItemImage = GameObject.Find("Selected Prize Image").GetComponent<Image>();
+            happinessChangeText = GameObject.Find("HappinessText").GetComponent<TMP_Text>();
+            hungerChangeText = GameObject.Find("HungerText").GetComponent<TMP_Text>();
+            inventoryPanel.SetActive(false);
+        }
+    }
 
 }

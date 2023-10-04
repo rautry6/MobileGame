@@ -30,6 +30,7 @@ public class InventoryButton : MonoBehaviour
 
     public void SetCurrentPrize(Prize prize, int quantity)
     {
+        Debug.Log(prize);
         currentPrize = prize;
 
         if(prize == null)

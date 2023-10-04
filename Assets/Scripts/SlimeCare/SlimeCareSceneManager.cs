@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using JelloFelloInterfaces;
@@ -12,11 +13,6 @@ namespace SlimeCare
         private void Start()
         {
             LockScreenToLandscape();
-        }
-
-        public void LockScreenToLandscape()
-        {
-            Screen.orientation = ScreenOrientation.LandscapeLeft;
         }
 
         public void LoadPlinkoScene()
@@ -51,6 +47,11 @@ namespace SlimeCare
             yield return StartCoroutine(SceneChangeInstance.Instance.FillImage());
             SceneManager.LoadScene("TEST_SlimeHole", LoadSceneMode.Single);
 
+        }
+
+        public void LockScreenToLandscape()
+        {
+            Screen.orientation = ScreenOrientation.LandscapeLeft;
         }
     }
 }
