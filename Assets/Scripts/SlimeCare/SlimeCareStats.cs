@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace SlimeCare
 {
@@ -23,6 +25,10 @@ namespace SlimeCare
         private bool _shouldTick;
         private Material _transparentMaterial;
 
+        private Prize wonPrize;
+
+        public Prize WonPrize => wonPrize;
+
         private void Awake()
         {
             // Check if an instance already exists
@@ -38,6 +44,8 @@ namespace SlimeCare
             health = maxHealth;
             happiness = maxHappiness;
             // Ensure the object survives when changing scenes.
+
+           
             DontDestroyOnLoad(gameObject);
         }
 
@@ -63,6 +71,12 @@ namespace SlimeCare
                 _transparentMaterial = (Material) Resources.Load("Tranparent", typeof(Material));
                 _slimeMaterial.color = new Color(_redComponent, _greenComponent, _blueComponent, 1f);
                 _transparentMaterial.SetColor("_Color", new Color(_redComponent, _greenComponent, _blueComponent, 0.5f));
+
+                Inventory inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
+
+                Debug.Log(inventory);
+
+                inventory.AddPrizeToInventory(wonPrize);
             }
         }
 
@@ -108,5 +122,12 @@ namespace SlimeCare
                 happiness = maxHappiness;
             }
         }
+
+        public void SetPrize(Prize prize)
+        {
+            wonPrize = prize;
+        }
+
+       
     }
 }

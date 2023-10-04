@@ -9,6 +9,6 @@ PhysicMaterial:
   m_Name: CornholeBoard
   dynamicFriction: 0.3
   staticFriction: 0.1
-  bounciness: 0
+  bounciness: 0.0001
   frictionCombine: 0
   bounceCombine: 0
