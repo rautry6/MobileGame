@@ -21,10 +21,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Skeeball.unity
     guid: cc7bbcacb3c51fa4cb7a65ea6683ac82
   - enabled: 1
-    path: Assets/Scenes/SlimeHole.unity
+    path: Assets/Scenes/Old_SlimeHole.unity
     guid: 25939f36d36d3c341b6d41be07a9f8e8
   - enabled: 1
-    path: Assets/Scenes/TEST_SlimeHole.unity
+    path: Assets/Scenes/New_SlimeHole.unity
     guid: 8a1a131963b0e6441bde0f88985542fb
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 0c00250892762e24487961b8185f257f, type: 2}

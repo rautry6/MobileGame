@@ -24,6 +24,9 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Prize[] testPrizes;
 
     private Prize currentPrize;
+
+    private Button useButton;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -57,12 +60,6 @@ public class Inventory : MonoBehaviour
         inventoryPanel.SetActive(false);
 
         DontDestroyOnLoad(gameObject);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void RetrieveWonPrize(Scene scene, LoadSceneMode loadSceneMode)
@@ -123,6 +120,7 @@ public class Inventory : MonoBehaviour
     public void UsePrize()
     {
 
+        Debug.Log("Using Prize");
         if(currentPrize == null)
         {
             return;
@@ -189,6 +187,9 @@ public class Inventory : MonoBehaviour
             selectedItemImage = GameObject.Find("Selected Prize Image").GetComponent<Image>();
             happinessChangeText = GameObject.Find("HappinessText").GetComponent<TMP_Text>();
             hungerChangeText = GameObject.Find("HungerText").GetComponent<TMP_Text>();
+            useButton = GameObject.Find("Use Button").GetComponent<Button>();
+            Debug.Log(useButton == null);
+            useButton.onClick.AddListener(UsePrize);
             inventoryPanel.SetActive(false);
         }
     }
