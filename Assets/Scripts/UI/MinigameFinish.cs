@@ -51,9 +51,9 @@ namespace UI
 
         public void BackToHomeWithPrize()
         {
+            
             SlimeCareStats.Instance.SetPrize(prizeToTakeBack);
             StartCoroutine(LoadSlimeCareRoutine());
-            
         }
 
         public void BackToHomeNoPrize()
