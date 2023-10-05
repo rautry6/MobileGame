@@ -72,11 +72,16 @@ namespace SlimeCare
                 _slimeMaterial.color = new Color(_redComponent, _greenComponent, _blueComponent, 1f);
                 _transparentMaterial.SetColor("_Color", new Color(_redComponent, _greenComponent, _blueComponent, 0.5f));
 
-                Inventory inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
 
-                Debug.Log(inventory);
 
-                inventory.AddPrizeToInventory(wonPrize);
+                Inventory.Instance?.GetReferences();
+
+                if (wonPrize != null)
+                {
+                    Inventory.Instance?.AddPrizeToInventory(wonPrize);
+                }
+
+                Inventory.Instance?.UpdateUi();
             }
         }
 

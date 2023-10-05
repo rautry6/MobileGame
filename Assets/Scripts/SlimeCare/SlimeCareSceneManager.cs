@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using JelloFelloInterfaces;
@@ -7,23 +8,13 @@ using UnityEngine.SceneManagement;
 
 namespace SlimeCare
 {
-    public class SlimeCareSceneManager : MonoBehaviour, IOrientLandscape
+    public class SlimeCareSceneManager : MonoBehaviour
     {
-        private void Start()
-        {
-            LockScreenToLandscape();
-        }
-
-        public void LockScreenToLandscape()
-        {
-            Screen.orientation = ScreenOrientation.LandscapeLeft;
-        }
-
         public void LoadPlinkoScene()
         {
             StartCoroutine(OnPlinkoNavigation());
         }
-
+        
         private IEnumerator OnPlinkoNavigation()
         {
             yield return StartCoroutine(SceneChangeInstance.Instance.FillImage());
@@ -49,7 +40,7 @@ namespace SlimeCare
         private IEnumerator OnSlimeHoleNavigation()
         {
             yield return StartCoroutine(SceneChangeInstance.Instance.FillImage());
-            SceneManager.LoadScene("TEST_SlimeHole", LoadSceneMode.Single);
+            SceneManager.LoadScene("New_SlimeHole", LoadSceneMode.Single);
 
         }
     }

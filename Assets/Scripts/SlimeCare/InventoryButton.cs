@@ -14,22 +14,9 @@ public class InventoryButton : MonoBehaviour
     [SerializeField] protected TMP_Text prizeQuantity;
     [SerializeField] private Image prizeImage;
 
-    [SerializeField] private Inventory inventory;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SetCurrentPrize(Prize prize, int quantity)
     {
+        Debug.Log(prize);
         currentPrize = prize;
 
         if(prize == null)
@@ -45,7 +32,7 @@ public class InventoryButton : MonoBehaviour
 
     public void Selected()
     {
-        inventory.SetSelectedPrize(currentPrize);
+        Inventory.Instance?.SetSelectedPrize(currentPrize);
     }
 
     public void ClearItems()
