@@ -19,6 +19,7 @@ namespace UI
         
         public void DisplayGameOverUi(int scoreValue, Prize prize)
         {
+            PlayerPrefs.SetInt("PrizesWonNum", PlayerPrefs.GetInt("PrizesWonNum", 0) + 1);
             Debug.Log(prize);
 
             if (gameOverUi == null)
