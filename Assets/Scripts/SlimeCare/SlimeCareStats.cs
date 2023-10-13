@@ -71,7 +71,8 @@ namespace SlimeCare
                 _transparentMaterial = (Material) Resources.Load("Tranparent", typeof(Material));
                 _slimeMaterial.color = new Color(_redComponent, _greenComponent, _blueComponent, 1f);
                 _transparentMaterial.SetColor("_Color", new Color(_redComponent, _greenComponent, _blueComponent, 0.5f));
-
+                health = PlayerPrefs.GetFloat("SlimeHunger", maxHealth);
+                happiness = PlayerPrefs.GetFloat("SlimeHappiness", maxHappiness);
 
 
                 Inventory.Instance?.GetReferences();
@@ -96,13 +97,21 @@ namespace SlimeCare
         private void Update()
         {
             if (!_shouldTick) return;
-            health -= Time.deltaTime;
-            happiness -= Time.deltaTime;
+            health -= Time.deltaTime * 3;
+            happiness -= Time.deltaTime * 3;
+            PlayerPrefs.SetFloat("SlimeHunger", health);
+            PlayerPrefs.SetFloat("SlimeHappiness", happiness);
 
             if (_healthSlider != null && _happinessSlider != null)
             {
                 _healthSlider.value = health;
                 _happinessSlider.value = happiness;
+            }
+
+            if (health <= 0 || happiness <= 0)
+            {
+                _shouldTick = false;
+                GameObject.Find("SlimeCareSceneManager").GetComponent<SlimeCareSceneManager>().LoadSlimeDeath();
             }
         }
 

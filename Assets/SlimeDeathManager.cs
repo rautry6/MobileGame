@@ -12,7 +12,7 @@ public class SlimeDeathManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.GetInt("SlimeHappiness") < PlayerPrefs.GetInt("SlimeHunger"))
+        if (PlayerPrefs.GetFloat("SlimeHappiness") < PlayerPrefs.GetFloat("SlimeHunger"))
         {
             titleText.SetText("" + PlayerPrefs.GetString("SlimeName") + " died of Sadness");
         }
@@ -26,8 +26,8 @@ public class SlimeDeathManager : MonoBehaviour
             + "\nAnd"
             + "\nWon " + PlayerPrefs.GetInt("PrizesWonNum", 0) + " Prizes");
 
-        PlayerPrefs.SetInt("SlimeHappiness", 100);
-        PlayerPrefs.SetInt("SlimeHunger", 100);
+        PlayerPrefs.SetFloat("SlimeHappiness", 600);
+        PlayerPrefs.SetFloat("SlimeHunger", 600);
         PlayerPrefs.SetString("SlimeName", "Unnamed");
         PlayerPrefs.SetInt("FoodEatenNum", 0);
         PlayerPrefs.SetInt("PrizesWonNum", 0);
