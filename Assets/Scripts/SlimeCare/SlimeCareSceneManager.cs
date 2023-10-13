@@ -43,5 +43,17 @@ namespace SlimeCare
             SceneManager.LoadScene("New_SlimeHole", LoadSceneMode.Single);
 
         }
+
+        public void LoadSlimeDeath()
+        {
+            StartCoroutine(OnSlimeDeathNavigation());
+        }
+
+        private IEnumerator OnSlimeDeathNavigation()
+        {
+            yield return StartCoroutine(SceneChangeInstance.Instance.FillImage());
+            SceneManager.LoadScene("SlimeDeath", LoadSceneMode.Single);
+
+        }
     }
 }
