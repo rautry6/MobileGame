@@ -84,6 +84,10 @@ namespace SlimeCare
 
                 Inventory.Instance?.UpdateUi();
             }
+            else
+            {
+                _shouldTick = false;
+            }
         }
 
         private void FindAndAssignSliders()
