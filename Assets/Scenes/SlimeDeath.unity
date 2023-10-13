@@ -329,8 +329,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: YOUR SLIME DIED OF HUNGER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 46cd191b27134da4999421d6793a11a6, type: 2}
-  m_sharedMaterial: {fileID: 4384783297149711852, guid: 46cd191b27134da4999421d6793a11a6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e45eb3f6d464a7348b3d0b47cc610e27, type: 2}
+  m_sharedMaterial: {fileID: -6067321223725083874, guid: e45eb3f6d464a7348b3d0b47cc610e27, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -667,8 +667,8 @@ MonoBehaviour:
     AND WON
     _ PRIZES'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 46cd191b27134da4999421d6793a11a6, type: 2}
-  m_sharedMaterial: {fileID: 4384783297149711852, guid: 46cd191b27134da4999421d6793a11a6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e45eb3f6d464a7348b3d0b47cc610e27, type: 2}
+  m_sharedMaterial: {fileID: -6067321223725083874, guid: e45eb3f6d464a7348b3d0b47cc610e27, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -886,8 +886,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: RESTART ?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 46cd191b27134da4999421d6793a11a6, type: 2}
-  m_sharedMaterial: {fileID: 4384783297149711852, guid: 46cd191b27134da4999421d6793a11a6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e45eb3f6d464a7348b3d0b47cc610e27, type: 2}
+  m_sharedMaterial: {fileID: -6067321223725083874, guid: e45eb3f6d464a7348b3d0b47cc610e27, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
