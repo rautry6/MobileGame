@@ -5,5 +5,6 @@ namespace SlimeCare
         Idle,
         Wander,
         Eating,
+        Waiting,
     }
 }

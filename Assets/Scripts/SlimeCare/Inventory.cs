@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] Image selectedItemImage;
     [SerializeField] TMP_Text hungerChangeText;
     [SerializeField] TMP_Text happinessChangeText;
+    [SerializeField] private FoodThrowing throwingFoodManager;
 
 
     private List<InventoryItem> _prizeInventory;
@@ -53,7 +54,7 @@ public class Inventory : MonoBehaviour
         //Testing
         foreach (Prize prize in testPrizes)
         {
-            //AddPrizeToInventory(prize);
+            AddPrizeToInventory(prize);
         }
 
         startingButtonCount = inventoryButtons.Length;
@@ -126,9 +127,39 @@ public class Inventory : MonoBehaviour
             return;
         }
 
-        foreach (InventoryItem inventoryItem in _prizeInventory)
+        throwingFoodManager.StartThrowing(currentPrize);
+
+       /* foreach (InventoryItem inventoryItem in _prizeInventory)
         {
             if (inventoryItem.Prize == currentPrize)
+            {
+                inventoryItem.Quantity--;
+
+                if(inventoryItem.Quantity <= 0)
+                {
+                    _prizeInventory.Remove(inventoryItem);
+                    ClearSelectedPrize();
+                }
+
+                UpdateUi();
+
+                Prize prize = inventoryItem.Prize;
+
+                //Code to update values for health and happiness
+                SlimeCareStats.Instance.UpdateHealthAndHappiness(prize.HungerChange, prize.HappinessChange);
+
+                return;
+            }
+        }
+
+        Debug.LogError("Trying to use prize not found in inventory");*/
+    }
+
+    public void EatItem(Prize prizeToEat)
+    {
+        foreach (InventoryItem inventoryItem in _prizeInventory)
+        {
+            if (inventoryItem.Prize == prizeToEat)
             {
                 inventoryItem.Quantity--;
 
@@ -191,6 +222,7 @@ public class Inventory : MonoBehaviour
             Debug.Log(useButton == null);
             useButton.onClick.AddListener(UsePrize);
             inventoryPanel.SetActive(false);
+            throwingFoodManager = GameObject.Find("FoodThrowing").GetComponent<FoodThrowing>();
         }
     }
 
