@@ -8594,10 +8594,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 917782915}
   UI: {fileID: 64743404}
+  arCamera: {fileID: 203929534}
   currentFood: {fileID: 0}
   foodSpawnPoint: {fileID: 362123595}
   throwingFoodPrefab: {fileID: 7448950348963530073, guid: 02205b38717f0e64f898976a138c65dc, type: 3}
   throwForce: {x: 0, y: 5, z: 3}
+  throwScalar: 5
   slime: {fileID: 1278949966}
   slimeWanderingManager: {fileID: 2124295814}
 --- !u!1 &2104985649

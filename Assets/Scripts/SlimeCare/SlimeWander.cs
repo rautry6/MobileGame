@@ -17,20 +17,21 @@ public class SlimeWander : MonoBehaviour
     [SerializeField] private float minWanderTime;
     [SerializeField] private float maxWanderTime;
     [SerializeField] private float maxIdleTime;
-    [SerializeField] private float runSpeed = 5f;
+    [SerializeField] private float stopDistance = .1f;
+    [SerializeField] private float smoothTime = 0.3f;
+    
     private Rigidbody _slimeRigidbody;
     private Vector3 _desiredDestination;
     private float _currentWanderTime;
     private float _maxWanderTime;
     private float _currentIdleTime;
     private Vector3 _slimeStartingPosition;
-
     private SlimeCareStates _currentCareState;
     private bool _isWandering;
     private bool _isWaiting;
     private bool _isEating;
-
     private Transform _foodLocation;
+    private Vector3 _currentVelocity = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -103,27 +104,21 @@ public class SlimeWander : MonoBehaviour
             }
             case SlimeCareStates.Waiting:
                 {
-                    if (_slimeWaitingZone.position.x != _slimeGameObject.transform.position.x)
+                    if (Vector3.Distance(_slimeGameObject.transform.position, _slimeWaitingZone.position) > stopDistance)
                     {
-                        var direction = (_slimeWaitingZone.position - _slimeGameObject.transform.position).normalized;
-                        _slimeRigidbody.velocity = direction * (runSpeed * Time.deltaTime);
+                        MoveSmoothlyTo(_slimeWaitingZone.position);
                     }
                     else
                     {
-                        _slimeRigidbody.velocity = Vector3.zero;
+                        MoveSmoothlyTo(GetExcitedPosition());
                     }
                     break;
                 }
             case SlimeCareStates.Eating:
                 {
-                    if (_foodLocation.position.x != _slimeGameObject.transform.position.x)
+                    if (Vector3.Distance(_slimeGameObject.transform.position, _foodLocation.position) > .01f)
                     {
-                        var direction = (_foodLocation.position - _slimeGameObject.transform.position).normalized;
-                        _slimeRigidbody.velocity = direction * (runSpeed * Time.deltaTime);
-                    }
-                    else
-                    {
-                        _slimeRigidbody.velocity = Vector3.zero;
+                        MoveSmoothlyTo(_foodLocation.position);
                     }
                     break;
                 }
@@ -151,5 +146,20 @@ public class SlimeWander : MonoBehaviour
     private void UpdateCurrentState(SlimeCareStates newState)
     {
         _currentCareState = newState;
+    }
+
+    private void MoveSmoothlyTo(Vector3 destination)
+    {
+        var newPosition = Vector3.SmoothDamp(_slimeGameObject.transform.position, destination, ref _currentVelocity,
+            smoothTime);
+        _slimeRigidbody.MovePosition(newPosition);
+    }
+
+    private Vector3 GetExcitedPosition()
+    {
+        var angle = Random.Range(0, 360) * Mathf.Deg2Rad;
+        var distance = Random.Range(-1f, 1f);
+        return new Vector3(_slimeWaitingZone.position.x + distance * Mathf.Cos(angle), _slimeWaitingZone.position.y,
+            _slimeWaitingZone.position.z + distance * Mathf.Sin(angle));
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,7 +8,7 @@ public class FoodThrowing : MonoBehaviour
 {
     [SerializeField] private GameObject inventoryUI;
     [SerializeField] private GameObject UI;
-
+    [SerializeField] private Camera arCamera;
     [SerializeField] private GameObject currentFood;
     [SerializeField] private Transform foodSpawnPoint;
     [SerializeField] private GameObject throwingFoodPrefab;
@@ -20,6 +21,7 @@ public class FoodThrowing : MonoBehaviour
     InputAction touch;
 
     [SerializeField] private Vector3 throwForce;
+    [SerializeField] private float throwScalar;
     [SerializeField] private GameObject slime;
     [SerializeField] private SlimeWander slimeWanderingManager;
 
@@ -44,10 +46,12 @@ public class FoodThrowing : MonoBehaviour
     {
         if (throwingFood)
         {
+            
             if (touch.WasPerformedThisFrame())
             {
                 throwingFood = false;
-                currentFood.GetComponent<Rigidbody>().AddForce(throwForce, ForceMode.Impulse);
+                var desiredDirection = new Vector3(arCamera.transform.forward.x, 1f, arCamera.transform.forward.z).normalized;
+                currentFood.GetComponent<Rigidbody>().AddForce(desiredDirection * throwScalar, ForceMode.Impulse);
                 currentFood.GetComponent<Rigidbody>().useGravity = true;
                 foodThrown = true;
             }
@@ -71,7 +75,7 @@ public class FoodThrowing : MonoBehaviour
 
         slimeWanderingManager.StartWaiting();
 
-        currentFood = Instantiate(throwingFoodPrefab, foodSpawnPoint.position, Quaternion.identity);
+        currentFood = Instantiate(throwingFoodPrefab, foodSpawnPoint.position, Quaternion.identity, foodSpawnPoint);
         currentFood.GetComponent<SpriteRenderer>().sprite = currentPrize.PrizeSprite;
         currentFood.GetComponent<ThrownFood>().currentPrize = currentPrize;
         currentFood.GetComponent<ThrownFood>().foodThrowing = this;
