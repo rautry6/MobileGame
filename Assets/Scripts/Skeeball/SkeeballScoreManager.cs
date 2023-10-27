@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class SkeeballScoreManager : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class SkeeballScoreManager : MonoBehaviour
     [SerializeField] Image backwallPrizeImage;
 
     [SerializeField] Prize[] prizes;
+    private List<Prize> possiblePrizes;
+    private List<Prize> winablePrizes;
     [SerializeField] int[] scoreThresholds;
 
     [SerializeField] private TMP_Text[] popUpScores;
@@ -25,10 +29,25 @@ public class SkeeballScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < prizes.Length; i++)
+        possiblePrizes = new List<Prize>();
+        winablePrizes = new List<Prize>();
+
+        for(int i = 0;  i < prizes.Length; i++)
         {
-            popUpPowerUps[i].sprite = prizes[i].PrizeSprite;
+            possiblePrizes.Add(prizes[i]);
+        }
+
+        for (int i = 0; i < popUpPowerUps.Length; i++)
+        {
+            Random random = new Random();
+
+            int randomPrizeIndex = random.Next(0, possiblePrizes.Count);
+
+            popUpPowerUps[i].sprite = possiblePrizes[randomPrizeIndex].PrizeSprite;
             popUpScores[i].text = scoreThresholds[i].ToString();
+
+            winablePrizes.Add(possiblePrizes[randomPrizeIndex]);
+            possiblePrizes.RemoveAt(randomPrizeIndex);
         }
     }
 
@@ -44,9 +63,9 @@ public class SkeeballScoreManager : MonoBehaviour
 
         if (currentScoreThreshold < scoreThresholds.Length && currentScore >= scoreThresholds[currentScoreThreshold])
         {
-            currentPrize = prizes[currentScoreThreshold];
+            currentPrize = winablePrizes[currentScoreThreshold];
 
-            backwallPrizeImage.sprite = prizes[currentScoreThreshold].PrizeSprite;
+            backwallPrizeImage.sprite = winablePrizes[currentScoreThreshold].PrizeSprite;
             backwallPrizeImage.enabled = true;
 
             currentScoreThreshold++;

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2dd43eba45c6c9145aa2867a45b6aee2, type: 3}
-  m_Name: Food1
+  m_Name: Icecream
   m_EditorClassIdentifier: 
   prizeOption: 2
-  prizeName: Pizza
-  prizeSprite: {fileID: 21300030, guid: 37607ec1aab56e349af84a980f685a4b, type: 3}
-  hungerChange: 100
-  happinessChange: 50
+  prizeName: Icecream
+  prizeSprite: {fileID: 21300024, guid: 37607ec1aab56e349af84a980f685a4b, type: 3}
+  hungerChange: 50
+  happinessChange: 250

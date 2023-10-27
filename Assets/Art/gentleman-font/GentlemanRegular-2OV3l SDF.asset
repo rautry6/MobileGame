@@ -1532,15 +1532,11 @@ MonoBehaviour:
     m_Height: 78
   - m_X: 259
     m_Y: 688
-<<<<<<< HEAD
     m_Width: 65
     m_Height: 80
   - m_X: 268
     m_Y: 592
     m_Width: 51
-=======
-    m_Width: 58
->>>>>>> AR-Start
     m_Height: 80
   m_FreeGlyphRects:
   - m_X: 60
@@ -1655,13 +1651,6 @@ MonoBehaviour:
     m_Y: 437
     m_Width: 22
     m_Height: 15
-<<<<<<< HEAD
-=======
-  - m_X: 209
-    m_Y: 592
-    m_Width: 814
-    m_Height: 20
->>>>>>> AR-Start
   - m_X: 253
     m_Y: 318
     m_Width: 7
@@ -1746,23 +1735,9 @@ MonoBehaviour:
     m_Y: 0
     m_Width: 541
     m_Height: 1023
-<<<<<<< HEAD
   - m_X: 324
     m_Y: 481
     m_Width: 699
-=======
-  - m_X: 268
-    m_Y: 592
-    m_Width: 755
-    m_Height: 96
-  - m_X: 279
-    m_Y: 481
-    m_Width: 744
-    m_Height: 207
-  - m_X: 317
-    m_Y: 481
-    m_Width: 706
->>>>>>> AR-Start
     m_Height: 542
   - m_X: 259
     m_Y: 768
@@ -1772,7 +1747,6 @@ MonoBehaviour:
     m_Y: 768
     m_Width: 763
     m_Height: 255
-<<<<<<< HEAD
   - m_X: 209
     m_Y: 592
     m_Width: 59
@@ -1789,8 +1763,6 @@ MonoBehaviour:
     m_Y: 481
     m_Width: 704
     m_Height: 207
-=======
->>>>>>> AR-Start
   m_fontInfo:
     Name: 
     PointSize: 0

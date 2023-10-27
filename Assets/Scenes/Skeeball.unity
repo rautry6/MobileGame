@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.00024414062, y: -91}
+  m_AnchoredPosition: {x: 0.00024414062, y: -90.999985}
   m_SizeDelta: {x: 400, y: 200}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &11469107
@@ -10165,6 +10165,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4249ab8900dd85d4e83ffd523b79e905, type: 2}
   - {fileID: 11400000, guid: ee821772cfe09274d8f221ab168cd243, type: 2}
   - {fileID: 11400000, guid: 586529647c91ced43a3182058ece52d7, type: 2}
+  - {fileID: 11400000, guid: 681da9513ba89bc4abc2987f693932f0, type: 2}
+  - {fileID: 11400000, guid: 1315b466c31eb814dad273d9e16e63fc, type: 2}
+  - {fileID: 11400000, guid: d25cbaa24f73ed944bafa5d940940f4b, type: 2}
+  - {fileID: 11400000, guid: c59047c75a2fbdf47a8dbb5241722b63, type: 2}
+  - {fileID: 11400000, guid: b43707b717d00ec48b3e9055b4bc2792, type: 2}
   scoreThresholds: 204e0000409c000060ea0000
   popUpScores:
   - {fileID: 2047331665}
@@ -11303,7 +11308,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.45
+  m_fontSize: 59.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

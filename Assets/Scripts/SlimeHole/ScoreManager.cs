@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = System.Random;
 
 namespace SlimeHole
 {
@@ -10,6 +12,8 @@ namespace SlimeHole
     {
         [SerializeField] private TMP_Text scoreText;
         [SerializeField] private Prize[] prizes;
+        private List<Prize> possiblePrizes;
+        private List<Prize> winablePrizes;
         [SerializeField] private int[] scoreThresholds;
 
         public int currentScore { get; private set; }
@@ -23,10 +27,25 @@ namespace SlimeHole
         // Start is called before the first frame update
         void Start()
         {
+            possiblePrizes = new List<Prize>();
+            winablePrizes = new List<Prize>();
+
             for (int i = 0; i < prizes.Length; i++)
             {
-                popUpPowerUps[i].sprite = prizes[i].PrizeSprite;
+                possiblePrizes.Add(prizes[i]);
+            }
+
+            for (int i = 0; i < popUpPowerUps.Length; i++)
+            {
+                Random random = new Random();
+
+                int randomPrizeIndex = random.Next(0, possiblePrizes.Count);
+
+                popUpPowerUps[i].sprite = possiblePrizes[randomPrizeIndex].PrizeSprite;
                 popUpScores[i].text = scoreThresholds[i].ToString();
+
+                winablePrizes.Add(possiblePrizes[randomPrizeIndex]);
+                possiblePrizes.RemoveAt(randomPrizeIndex);
             }
         }
 
@@ -41,7 +60,7 @@ namespace SlimeHole
 
             if( currentScoreThreshold < scoreThresholds.Length && currentScore >= scoreThresholds[currentScoreThreshold])
             {
-                currentPrize = prizes[currentScoreThreshold];
+                currentPrize = winablePrizes[currentScoreThreshold];
                 currentScoreThreshold++;
             }
 
