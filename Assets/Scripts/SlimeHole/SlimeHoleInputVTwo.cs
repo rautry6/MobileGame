@@ -14,7 +14,7 @@ namespace SlimeHole
         [SerializeField] private SlimeThrowUI slimeThrowUI;
         [SerializeField] private MinigameFinish miniGameFinish;
         [SerializeField] private ScoreManager slimeHoleScoreManager;
-        [SerializeField] private float testForceScalar = 100f;
+        [SerializeField] private float testForceScalar = 90f;
         [SerializeField] private TMP_Text countDownText;
         
         private PlinkoControls _controls;
@@ -166,7 +166,7 @@ namespace SlimeHole
         private IEnumerator StartGameDelay()
         {
             countDownText.gameObject.SetActive(true);
-            yield return new WaitForSecondsRealtime(1f);
+            yield return new WaitForSecondsRealtime(3f);
             countDownText.SetText(2.ToString());
             yield return new WaitForSecondsRealtime(1f);
             countDownText.SetText(1.ToString());

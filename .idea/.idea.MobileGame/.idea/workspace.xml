@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bbc63034-5173-4201-8ecb-892a9c6dcd0b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MobileGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MobileGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SlimeCare.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SlimeCare.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FoodThrowing/FoodThrowing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FoodThrowing/FoodThrowing.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeWander.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeWander.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/New_SlimeHole.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/New_SlimeHole.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/SlimeHoleInputVTwo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/SlimeHoleInputVTwo.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +116,7 @@
       <workItem from="1696383415216" duration="3479000" />
       <workItem from="1696422041309" duration="607000" />
       <workItem from="1697464403975" duration="9553000" />
+      <workItem from="1700067322252" duration="1130000" />
     </task>
     <servers />
   </component>
