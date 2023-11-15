@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/New_SlimeHole.unity
     guid: 8a1a131963b0e6441bde0f88985542fb
+  - enabled: 1
+    path: Assets/Scenes/SlimeDeath.unity
+    guid: 7a8eb2d0cc3a0074daca2f9919057fc4
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 0c00250892762e24487961b8185f257f, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 6a9bba9561da7504a916ece7724a0522, type: 2}

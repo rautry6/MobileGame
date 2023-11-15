@@ -5,26 +5,33 @@ using SlimeCare;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
+using DG.Tweening;
 
 public class SlimeWander : MonoBehaviour
 {
     [SerializeField] private GameObject _slimeGameObject;
+    [SerializeField] private Transform _slimeWaitingZone;
     [SerializeField] private float maxWanderZoneRadius;
     [SerializeField] private float minWanderZoneRadius;
     [SerializeField] private float wanderSpeed;
     [SerializeField] private float minWanderTime;
     [SerializeField] private float maxWanderTime;
     [SerializeField] private float maxIdleTime;
+    [SerializeField] private float stopDistance = .1f;
+    [SerializeField] private float smoothTime = 0.3f;
+    
     private Rigidbody _slimeRigidbody;
     private Vector3 _desiredDestination;
     private float _currentWanderTime;
     private float _maxWanderTime;
     private float _currentIdleTime;
     private Vector3 _slimeStartingPosition;
-
     private SlimeCareStates _currentCareState;
     private bool _isWandering;
-
+    private bool _isWaiting;
+    private bool _isEating;
+    private Transform _foodLocation;
+    private Vector3 _currentVelocity = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -95,11 +102,64 @@ public class SlimeWander : MonoBehaviour
                 
                 break;
             }
+            case SlimeCareStates.Waiting:
+                {
+                    if (Vector3.Distance(_slimeGameObject.transform.position, _slimeWaitingZone.position) > stopDistance)
+                    {
+                        MoveSmoothlyTo(_slimeWaitingZone.position);
+                    }
+                    else
+                    {
+                        MoveSmoothlyTo(GetExcitedPosition());
+                    }
+                    break;
+                }
+            case SlimeCareStates.Eating:
+                {
+                    if (Vector3.Distance(_slimeGameObject.transform.position, _foodLocation.position) > .01f)
+                    {
+                        MoveSmoothlyTo(_foodLocation.position);
+                    }
+                    break;
+                }
         }
+    }
+
+    public void StartWaiting()
+    {
+        _isWaiting = false;
+        UpdateCurrentState(SlimeCareStates.Waiting);
+    }
+
+    public void StartEating(Transform foodPosition)
+    {
+        _foodLocation = foodPosition;
+        _isEating = false;
+        UpdateCurrentState(SlimeCareStates.Eating);
+    }
+
+    public void DoneEating()
+    {
+        UpdateCurrentState(SlimeCareStates.Idle);
     }
 
     private void UpdateCurrentState(SlimeCareStates newState)
     {
         _currentCareState = newState;
+    }
+
+    private void MoveSmoothlyTo(Vector3 destination)
+    {
+        var newPosition = Vector3.SmoothDamp(_slimeGameObject.transform.position, destination, ref _currentVelocity,
+            smoothTime);
+        _slimeRigidbody.MovePosition(newPosition);
+    }
+
+    private Vector3 GetExcitedPosition()
+    {
+        var angle = Random.Range(0, 360) * Mathf.Deg2Rad;
+        var distance = Random.Range(-1f, 1f);
+        return new Vector3(_slimeWaitingZone.position.x + distance * Mathf.Cos(angle), _slimeWaitingZone.position.y,
+            _slimeWaitingZone.position.z + distance * Mathf.Sin(angle));
     }
 }

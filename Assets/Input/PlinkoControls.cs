@@ -349,6 +349,45 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""FoodThrowing"",
+            ""id"": ""9c4deb8e-2e6f-4192-b884-951123db60a7"",
+            ""actions"": [
+                {
+                    ""name"": ""Touch"",
+                    ""type"": ""Button"",
+                    ""id"": ""c49f6136-7238-49e1-bdbd-2dd787fa86e7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""9192296d-718c-4da0-be26-eab20274010a"",
+                    ""path"": ""<Touchscreen>/Press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Touch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""37daf627-a049-4c05-a028-8564311130e9"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Touch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -367,6 +406,9 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
         m_Skeeball = asset.FindActionMap("Skeeball", throwIfNotFound: true);
         m_Skeeball_Confirm = m_Skeeball.FindAction("Confirm", throwIfNotFound: true);
         m_Skeeball_Reset = m_Skeeball.FindAction("Reset", throwIfNotFound: true);
+        // FoodThrowing
+        m_FoodThrowing = asset.FindActionMap("FoodThrowing", throwIfNotFound: true);
+        m_FoodThrowing_Touch = m_FoodThrowing.FindAction("Touch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -602,6 +644,52 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
         }
     }
     public SkeeballActions @Skeeball => new SkeeballActions(this);
+
+    // FoodThrowing
+    private readonly InputActionMap m_FoodThrowing;
+    private List<IFoodThrowingActions> m_FoodThrowingActionsCallbackInterfaces = new List<IFoodThrowingActions>();
+    private readonly InputAction m_FoodThrowing_Touch;
+    public struct FoodThrowingActions
+    {
+        private @PlinkoControls m_Wrapper;
+        public FoodThrowingActions(@PlinkoControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Touch => m_Wrapper.m_FoodThrowing_Touch;
+        public InputActionMap Get() { return m_Wrapper.m_FoodThrowing; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(FoodThrowingActions set) { return set.Get(); }
+        public void AddCallbacks(IFoodThrowingActions instance)
+        {
+            if (instance == null || m_Wrapper.m_FoodThrowingActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_FoodThrowingActionsCallbackInterfaces.Add(instance);
+            @Touch.started += instance.OnTouch;
+            @Touch.performed += instance.OnTouch;
+            @Touch.canceled += instance.OnTouch;
+        }
+
+        private void UnregisterCallbacks(IFoodThrowingActions instance)
+        {
+            @Touch.started -= instance.OnTouch;
+            @Touch.performed -= instance.OnTouch;
+            @Touch.canceled -= instance.OnTouch;
+        }
+
+        public void RemoveCallbacks(IFoodThrowingActions instance)
+        {
+            if (m_Wrapper.m_FoodThrowingActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IFoodThrowingActions instance)
+        {
+            foreach (var item in m_Wrapper.m_FoodThrowingActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_FoodThrowingActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public FoodThrowingActions @FoodThrowing => new FoodThrowingActions(this);
     public interface IPlinkoActions
     {
         void OnDrop(InputAction.CallbackContext context);
@@ -618,5 +706,9 @@ public partial class @PlinkoControls: IInputActionCollection2, IDisposable
     {
         void OnConfirm(InputAction.CallbackContext context);
         void OnReset(InputAction.CallbackContext context);
+    }
+    public interface IFoodThrowingActions
+    {
+        void OnTouch(InputAction.CallbackContext context);
     }
 }

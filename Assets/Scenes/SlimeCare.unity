@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 64743407}
   - component: {fileID: 64743409}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: UI Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -582,7 +582,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 362123595}
+  - {fileID: 2116901716}
   m_Father: {fileID: 1465813567}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1082,6 +1084,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4628631113189528297, guid: c932c8474052a8b4d95bf8400112e9b4, type: 3}
   m_PrefabInstance: {fileID: 357623038}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &362123594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 362123595}
+  m_Layer: 0
+  m_Name: ThrowingFoodSpawnjPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &362123595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362123594}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.399, z: 1.099}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 203929529}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &385615779
 GameObject:
   m_ObjectHideFlags: 0
@@ -7103,7 +7136,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1675331306}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2104985651}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: UsePrize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1675331306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8503,6 +8548,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2075975560}
   m_CullTransparentMesh: 1
+--- !u!1 &2092672369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2092672370}
+  - component: {fileID: 2092672371}
+  m_Layer: 0
+  m_Name: FoodThrowing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2092672370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092672369}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 688.6328, y: 224.46962, z: -44.75981}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2092672371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092672369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbc67af225e595459fe27280fa581f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryUI: {fileID: 917782915}
+  UI: {fileID: 64743404}
+  arCamera: {fileID: 203929534}
+  currentFood: {fileID: 0}
+  foodSpawnPoint: {fileID: 362123595}
+  throwingFoodPrefab: {fileID: 7448950348963530073, guid: 02205b38717f0e64f898976a138c65dc, type: 3}
+  throwForce: {x: 0, y: 5, z: 3}
+  throwScalar: 5
+  slime: {fileID: 1278949966}
+  slimeWanderingManager: {fileID: 2124295814}
 --- !u!1 &2104985649
 GameObject:
   m_ObjectHideFlags: 0
@@ -8560,6 +8659,7 @@ MonoBehaviour:
   selectedItemImage: {fileID: 673533125}
   hungerChangeText: {fileID: 391108334}
   happinessChangeText: {fileID: 1458376580}
+  throwingFoodManager: {fileID: 2092672371}
   testPrizes:
   - {fileID: 11400000, guid: 4249ab8900dd85d4e83ffd523b79e905, type: 2}
   - {fileID: 11400000, guid: ee821772cfe09274d8f221ab168cd243, type: 2}
@@ -8567,6 +8667,37 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ee821772cfe09274d8f221ab168cd243, type: 2}
   - {fileID: 11400000, guid: ee821772cfe09274d8f221ab168cd243, type: 2}
   - {fileID: 11400000, guid: 586529647c91ced43a3182058ece52d7, type: 2}
+--- !u!1 &2116901715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2116901716}
+  m_Layer: 0
+  m_Name: SlimeWaitingPlace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2116901716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116901715}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 6.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 203929529}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2124295812
 GameObject:
   m_ObjectHideFlags: 0
@@ -8612,12 +8743,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slimeGameObject: {fileID: 1278949966}
+  _slimeWaitingZone: {fileID: 2116901716}
   maxWanderZoneRadius: 15
   minWanderZoneRadius: 2
   wanderSpeed: 50
   minWanderTime: 5
   maxWanderTime: 10
   maxIdleTime: 5
+  runSpeed: 500
 --- !u!1 &2129435885
 GameObject:
   m_ObjectHideFlags: 0
@@ -8749,6 +8882,10 @@ PrefabInstance:
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: e45eb3f6d464a7348b3d0b47cc610e27, type: 2}
+    - target: {fileID: 3938279945672481966, guid: c932c8474052a8b4d95bf8400112e9b4, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3938279945672481966, guid: c932c8474052a8b4d95bf8400112e9b4, type: 3}
       propertyPath: m_sharedMaterial
       value: 
