@@ -12,14 +12,15 @@ public class SlimeCreationMaster : MonoBehaviour
     public GameObject slime;
 
     Color[] colorSwaps = { Color.blue, Color.cyan, Color.green, Color.magenta, Color.red, Color.white, Color.yellow };
-    MeshRenderer rend;
+    SkinnedMeshRenderer rend;
     int colorIndex = 0;
 
     private void Start()
     {
-        rend = slime.GetComponent<MeshRenderer>();
+        rend = slime.GetComponent<SkinnedMeshRenderer>();
         colorIndex = Random.Range(0, colorSwaps.Length);
         rend.material.color = colorSwaps[colorIndex];
+        //rend.material.color = new Color(rend.material.color.r, rend.material.color.g, rend.material.color.b, 213);
         colorExample.color = colorSwaps[colorIndex];
     }
 
@@ -31,6 +32,7 @@ public class SlimeCreationMaster : MonoBehaviour
             colorIndex = 0;
         }
         rend.material.color = colorSwaps[colorIndex];
+        //rend.material.color = new Color(rend.material.color.r, rend.material.color.g, rend.material.color.b, 213);
         colorExample.color = colorSwaps[colorIndex];
     }
 
@@ -42,6 +44,7 @@ public class SlimeCreationMaster : MonoBehaviour
             colorIndex = colorSwaps.Length;
         }
         rend.material.color = colorSwaps[colorIndex];
+        //rend.material.color = new Color(rend.material.color.r, rend.material.color.g, rend.material.color.b, 213);
         colorExample.color = colorSwaps[colorIndex];
     }
 
@@ -50,7 +53,11 @@ public class SlimeCreationMaster : MonoBehaviour
         if (nameBox.text != "")
         {
             PlayerPrefs.SetString("SlimeName", nameBox.text);
-            PlayerPrefs.SetString("SlimeColor", rend.material.color.ToString());
+            string slimeColorString = rend.material.color.r + "," +
+                rend.material.color.g + "," +
+                rend.material.color.b + "," +
+                rend.material.color.a;
+            PlayerPrefs.SetString("SlimeColor", slimeColorString);
             Debug.Log("Slime Color: " + PlayerPrefs.GetString("SlimeColor") + " - Name: " + PlayerPrefs.GetString("SlimeName"));
             SceneManager.LoadScene("SlimeCare");
             PlayerPrefs.SetInt("FirstPlay", 1);

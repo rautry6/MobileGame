@@ -2003,6 +2003,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7634826782293834720, guid: 097f86f2828018c468035ff39c0e9f7b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7634826782293834722, guid: 097f86f2828018c468035ff39c0e9f7b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2050,6 +2054,10 @@ PrefabInstance:
     - target: {fileID: 7634826782293834726, guid: 097f86f2828018c468035ff39c0e9f7b, type: 3}
       propertyPath: m_Name
       value: Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 7634826782293834726, guid: 097f86f2828018c468035ff39c0e9f7b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7634826782293834733, guid: 097f86f2828018c468035ff39c0e9f7b, type: 3}
       propertyPath: m_Constraints
@@ -3165,6 +3173,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slimeNameText: {fileID: 712417190}
+--- !u!137 &718602288 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6523477560079160845, guid: 097f86f2828018c468035ff39c0e9f7b, type: 3}
+  m_PrefabInstance: {fileID: 440791738}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &735476542
 GameObject:
   m_ObjectHideFlags: 0
@@ -8743,6 +8756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slimeGameObject: {fileID: 1278949966}
+  _slimeSkin: {fileID: 718602288}
   _slimeWaitingZone: {fileID: 2116901716}
   maxWanderZoneRadius: 15
   minWanderZoneRadius: 2
@@ -8750,7 +8764,8 @@ MonoBehaviour:
   minWanderTime: 5
   maxWanderTime: 10
   maxIdleTime: 5
-  runSpeed: 500
+  stopDistance: 0.1
+  smoothTime: 0.3
 --- !u!1 &2129435885
 GameObject:
   m_ObjectHideFlags: 0
