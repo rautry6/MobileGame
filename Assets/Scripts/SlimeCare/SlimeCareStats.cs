@@ -64,13 +64,13 @@ namespace SlimeCare
                 var slimeColor = PlayerPrefs.GetString("SlimeColor");
                 var formattedColor = slimeColor.Substring(5, slimeColor.Length - 6);
                 var rgbaComponents = formattedColor.Split(',');
-                _redComponent = (float) double.Parse(rgbaComponents[0]);
-                _greenComponent = (float) double.Parse(rgbaComponents[1]);
-                _blueComponent = (float) double.Parse(rgbaComponents[2]);
-                _slimeMaterial = (Material)Resources.Load("Slime", typeof(Material));
-                _transparentMaterial = (Material) Resources.Load("Tranparent", typeof(Material));
-                _slimeMaterial.color = new Color(_redComponent, _greenComponent, _blueComponent, 1f);
-                _transparentMaterial.SetColor("_Color", new Color(_redComponent, _greenComponent, _blueComponent, 0.5f));
+                //_redComponent = (float) double.Parse(rgbaComponents[0]);
+                //_greenComponent = (float) double.Parse(rgbaComponents[1]);
+                //_blueComponent = (float) double.Parse(rgbaComponents[2]);
+                //_slimeMaterial = (Material)Resources.Load("Slime", typeof(Material));
+                //_transparentMaterial = (Material) Resources.Load("Tranparent", typeof(Material));
+                //_slimeMaterial.color = new Color(_redComponent, _greenComponent, _blueComponent, 1f);
+                //_transparentMaterial.SetColor("_Color", new Color(_redComponent, _greenComponent, _blueComponent, 0.5f));
                 health = PlayerPrefs.GetFloat("SlimeHunger", maxHealth);
                 happiness = PlayerPrefs.GetFloat("SlimeHappiness", maxHappiness);
 
