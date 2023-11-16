@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7634826782293834732}
   - component: {fileID: 8891248384177106133}
   - component: {fileID: 333844813419255417}
+  - component: {fileID: 5782291657524103636}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Slime
@@ -53,7 +54,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7634826782293834726}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -146,6 +147,19 @@ MonoBehaviour:
   mass: 1
   stiffness: 0.64
   damping: 0.75
+--- !u!114 &5782291657524103636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7634826782293834726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a37216bb2a68b646b8338ee4f78c6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin: {fileID: 6523477560079160845}
 --- !u!1001 &1943656284755917978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -243,5 +257,10 @@ Animator:
 --- !u!4 &5529521019626759060 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6216532115693788942, guid: d941199d4a58fcb45adc75ea8e37c42c, type: 3}
+  m_PrefabInstance: {fileID: 1943656284755917978}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &6523477560079160845 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4643577701059586711, guid: d941199d4a58fcb45adc75ea8e37c42c, type: 3}
   m_PrefabInstance: {fileID: 1943656284755917978}
   m_PrefabAsset: {fileID: 0}

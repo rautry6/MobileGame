@@ -40,14 +40,6 @@ public class SlimeWander : MonoBehaviour
     {
         _slimeRigidbody = _slimeGameObject.GetComponent<Rigidbody>();
         _slimeStartingPosition = _slimeGameObject.transform.position;
-        string slimeColor = PlayerPrefs.GetString("SlimeColor");
-        List<float> cn = new List<float>();
-        foreach (string index in slimeColor.Split(','))
-        {
-            float newFloat = float.Parse(index);
-            cn.Add(newFloat);
-        }
-        _slimeSkin.material.color = new Color(cn[0], cn[1], cn[2], cn[3]);
         UpdateCurrentState(SlimeCareStates.Idle);
     }
 
