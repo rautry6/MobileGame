@@ -6,8 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="bbc63034-5173-4201-8ecb-892a9c6dcd0b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MobileGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MobileGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/New_SlimeHole.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/New_SlimeHole.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/SlimeHoleInputVTwo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeHole/SlimeHoleInputVTwo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AR Default Plane.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AR Default Plane.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SlimeCare.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SlimeCare.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SlimeDeath.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SlimeDeath.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/Inventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeCareStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeCare/SlimeCareStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ThrownFood.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ThrownFood.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimeDeathManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SlimeDeathManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +36,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeHole/SlimeHoleInputVTwo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/PlinkoButtonSizer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/SceneChangeInstance.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.6.3/Samples~/RebindingUI/RebindSaveLoad.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.probuilder@5.0.7/External/Poly2Tri/Triangulation/Delaunay/Sweep/DTSweepBasin.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2V4zknpGLxtLEHakaOOH1Nmpt7B" />
   <component name="ProjectLevelVcsManager">
@@ -117,6 +127,7 @@
       <workItem from="1696422041309" duration="607000" />
       <workItem from="1697464403975" duration="9553000" />
       <workItem from="1700067322252" duration="1130000" />
+      <workItem from="1701095788882" duration="5021000" />
     </task>
     <servers />
   </component>

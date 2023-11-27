@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: MobGame
+  productName: JelloFello
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -134,8 +134,12 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.1
-  preloadedAssets: []
+  bundleVersion: 1
+  preloadedAssets:
+  - {fileID: 5096385030871570494, guid: 97d94771f872421458808b6ec78f3c89, type: 2}
+  - {fileID: 11400000, guid: e7b807fc8cb7e4444b6cdd4400eaa060, type: 2}
+  - {fileID: -9058239510235601911, guid: f90cb81fc4662d64e8aca2d759eb2f2f, type: 2}
+  - {fileID: 4800000, guid: c9f956787b1d945e7b36e0516201fc76, type: 3}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1

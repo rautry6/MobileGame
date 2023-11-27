@@ -8669,13 +8669,7 @@ MonoBehaviour:
   hungerChangeText: {fileID: 391108334}
   happinessChangeText: {fileID: 1458376580}
   throwingFoodManager: {fileID: 2092672371}
-  testPrizes:
-  - {fileID: 11400000, guid: 4249ab8900dd85d4e83ffd523b79e905, type: 2}
-  - {fileID: 11400000, guid: ee821772cfe09274d8f221ab168cd243, type: 2}
-  - {fileID: 11400000, guid: 586529647c91ced43a3182058ece52d7, type: 2}
-  - {fileID: 11400000, guid: ee821772cfe09274d8f221ab168cd243, type: 2}
-  - {fileID: 11400000, guid: ee821772cfe09274d8f221ab168cd243, type: 2}
-  - {fileID: 11400000, guid: 586529647c91ced43a3182058ece52d7, type: 2}
+  testPrizes: []
 --- !u!1 &2116901715
 GameObject:
   m_ObjectHideFlags: 0
@@ -8754,11 +8748,11 @@ MonoBehaviour:
   _slimeGameObject: {fileID: 1278949966}
   _slimeSkin: {fileID: 718602288}
   _slimeWaitingZone: {fileID: 2116901716}
-  maxWanderZoneRadius: 15
-  minWanderZoneRadius: 2
-  wanderSpeed: 50
-  minWanderTime: 5
-  maxWanderTime: 10
+  maxWanderZoneRadius: 3
+  minWanderZoneRadius: 0.5
+  wanderSpeed: 20
+  minWanderTime: 2
+  maxWanderTime: 5
   maxIdleTime: 5
   stopDistance: 0.1
   smoothTime: 0.3

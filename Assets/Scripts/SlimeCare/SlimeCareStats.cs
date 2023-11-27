@@ -41,8 +41,8 @@ namespace SlimeCare
 
             // If no instance exists, then this becomes the instance.
             Instance = this;
-            health = maxHealth;
-            happiness = maxHappiness;
+            maxHealth = health;
+            maxHappiness = happiness;
             // Ensure the object survives when changing scenes.
 
            

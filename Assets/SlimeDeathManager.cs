@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using SlimeCare;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -26,8 +27,8 @@ public class SlimeDeathManager : MonoBehaviour
             + "\nAnd"
             + "\nWon " + PlayerPrefs.GetInt("PrizesWonNum", 0) + " Prizes");
 
-        PlayerPrefs.SetFloat("SlimeHappiness", 600);
-        PlayerPrefs.SetFloat("SlimeHunger", 600);
+        PlayerPrefs.SetFloat("SlimeHappiness", SlimeCareStats.Instance.happiness);
+        PlayerPrefs.SetFloat("SlimeHunger", SlimeCareStats.Instance.health);
         PlayerPrefs.SetString("SlimeName", "Unnamed");
         PlayerPrefs.SetInt("FoodEatenNum", 0);
         PlayerPrefs.SetInt("PrizesWonNum", 0);

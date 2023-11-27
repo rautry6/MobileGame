@@ -13,6 +13,7 @@ public class ThrownFood : MonoBehaviour
         {
             foodThrowing.FoodAte();
             Inventory.Instance.EatItem(currentPrize);
+            PlayerPrefs.SetInt("FoodEatenNum", PlayerPrefs.GetInt("FoodEatenNum", 0) + 1);
             Destroy(gameObject);
         }
     }
