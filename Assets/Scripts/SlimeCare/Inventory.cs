@@ -226,4 +226,8 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void ResetInventory()
+    {
+        _prizeInventory.Clear();
+    }
 }
